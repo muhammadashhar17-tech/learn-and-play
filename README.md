@@ -62,8 +62,8 @@ npm run icons      # regenerate icons + Open Graph image from public/icon.svg
 
 ## 2. Before you deploy — make it yours
 
-1. **School name:** search for `schoolName` in `messages/en.json`, `messages/ur.json`
-   and `messages/sd.json`, and replace "Your School Name" (in all three languages).
+1. **School name:** set to "Govt Girls School" (`schoolName` in `messages/en.json`,
+   `messages/ur.json` and `messages/sd.json`). Change it there if needed.
 2. **Contact e-mail:** edit `contactEmail` in `data/site.ts`.
 3. **Testimonials:** replace the sample quotes in `data/testimonials.ts`.
 4. **Translations:** ask a native speaker to check the list in

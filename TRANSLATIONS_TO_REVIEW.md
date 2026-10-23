@@ -25,8 +25,8 @@ files have the same keys and warns if Urdu-only letters (ی ہ ے) slip into Sin
 
 ## ⚠️ Must change before the demo
 
-- **School name:** `About.schoolName` in all three message files currently says
-  "Your School Name" / "آپ کے اسکول کا نام" / "توهان جي اسڪول جو نالو".
+- **School name:** `About.schoolName` is "Govt Girls School" / "گورنمنٹ گرلز اسکول" /
+  "گورنمينٽ گرلز اسڪول". Check the Urdu and Sindhi spelling, or use the school's full official name.
 - **Contact e-mail:** `contactEmail` in `data/site.ts` is a placeholder
   (`contact@yourschool.edu.pk`).
 - **Testimonials** in `data/testimonials.ts` are sample quotes. Replace them with

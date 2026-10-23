@@ -28,10 +28,10 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: "t2",
-    name: { en: "Bilal", ur: "بلال", sd: "بلال" },
+    name: { en: "Fatima", ur: "فاطمہ", sd: "فاطمه" },
     role: "student",
     grade: 5,
-    emoji: "👦",
+    emoji: "👧",
     quote: {
       en: "The quiz timer makes my heart race! I got three stars in Science on Hard level.",
       ur: "کوئز کا ٹائمر دل کی دھڑکن تیز کر دیتا ہے! میں نے سائنس میں مشکل درجے پر تین ستارے لیے۔",
@@ -51,10 +51,10 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: "t4",
-    name: { en: "Zain", ur: "زین", sd: "زين" },
+    name: { en: "Maryam", ur: "مریم", sd: "مريم" },
     role: "student",
     grade: 5,
-    emoji: "🧒",
+    emoji: "👧",
     quote: {
       en: "I asked the chatbot about Shah Abdul Latif Bhittai and it told me about Shah Jo Risalo!",
       ur: "میں نے چیٹ بوٹ سے شاہ عبداللطیف بھٹائی کے بارے میں پوچھا تو اس نے شاہ جو رسالو کے بارے میں بتایا!",
