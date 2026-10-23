@@ -8,6 +8,7 @@ import { DIFFICULTY_SETTINGS, QUESTIONS_PER_ROUND } from "@/lib/quiz";
 import { bestByCategory, progressStore } from "@/lib/progress";
 import { useHydrated, useStore } from "@/lib/storage";
 import { Button } from "@/components/ui/Button";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 export function QuizSetup({
   category,
@@ -33,8 +34,8 @@ export function QuizSetup({
           const selected = category === c.id;
           const bestPts = hydrated ? best[c.id]?.points : undefined;
           return (
+            <TiltCard key={c.id} className="rounded-3xl" max={5}>
             <motion.button
-              key={c.id}
               type="button"
               role="radio"
               aria-checked={selected}
@@ -42,9 +43,8 @@ export function QuizSetup({
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
-              whileHover={{ y: -4 }}
               whileTap={{ scale: 0.97 }}
-              className={`group relative overflow-hidden rounded-3xl border-2 bg-surface p-5 text-start shadow-soft transition-colors ${
+              className={`group relative h-full w-full overflow-hidden rounded-3xl border-2 bg-surface p-5 text-start shadow-soft transition-colors ${
                 selected ? "border-brand-500 ring-4 ring-brand-500/20" : "border-line hover:border-brand-300"
               }`}
             >
@@ -78,6 +78,7 @@ export function QuizSetup({
                 </motion.span>
               )}
             </motion.button>
+            </TiltCard>
           );
         })}
       </div>

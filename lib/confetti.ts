@@ -15,3 +15,21 @@ export function celebrate() {
   })();
   confetti({ particleCount: 120, spread: 100, origin: { y: 0.55 }, colors, scalar: 1.1 });
 }
+
+/** A small sparkle burst coming out of an element (e.g. the correct answer). */
+export function burstFrom(el: HTMLElement | null) {
+  if (!el || typeof window === "undefined") return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const r = el.getBoundingClientRect();
+  confetti({
+    particleCount: 36,
+    spread: 70,
+    startVelocity: 26,
+    ticks: 90,
+    scalar: 0.8,
+    gravity: 0.9,
+    origin: { x: (r.left + r.width / 2) / window.innerWidth, y: (r.top + r.height / 2) / window.innerHeight },
+    colors: ["#34d399", "#10b981", "#facc15", "#60a5fa"],
+    disableForReducedMotion: true,
+  });
+}

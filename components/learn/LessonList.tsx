@@ -8,6 +8,7 @@ import { Link } from "@/i18n/navigation";
 import { progressStore } from "@/lib/progress";
 import { useHydrated, useStore } from "@/lib/storage";
 import { Skeleton } from "@/components/ui/States";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 export function LessonList() {
   const t = useTranslations("Learn");
@@ -55,6 +56,7 @@ export function LessonList() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
             >
+              <TiltCard className="rounded-3xl">
               <Link
                 href={`/learn/${lesson.id}`}
                 className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface shadow-soft transition duration-300 hover:-translate-y-1.5 hover:shadow-lift"
@@ -84,6 +86,7 @@ export function LessonList() {
                   </div>
                 </div>
               </Link>
+              </TiltCard>
             </motion.li>
           );
         })}

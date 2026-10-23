@@ -99,7 +99,12 @@
     "hero": {
       "badge": "For Class 5 · 100% free · Works offline",
       "titleStart": "Learn, play and",
-      "titleHighlight": "grow every day!",
+      "rotating": [
+        "grow every day!",
+        "have fun!",
+        "shine bright!",
+        "dream big!"
+      ],
       "subtitle": "Fun quizzes, talking flashcards and a friendly chatbot — made for Class 5 students of Sindh in English, Urdu and Sindhi.",
       "ctaQuiz": "Start a quiz",
       "ctaLearn": "Learn words",

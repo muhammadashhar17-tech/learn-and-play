@@ -9,6 +9,7 @@ import { NAV_ITEMS, isActive } from "@/lib/nav";
 import { Logo } from "./Logo";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
+import { ScrollProgress } from "./ScrollProgress";
 
 export function Navbar() {
   const t = useTranslations("Nav");
@@ -140,6 +141,7 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+      <ScrollProgress />
     </header>
   );
 }

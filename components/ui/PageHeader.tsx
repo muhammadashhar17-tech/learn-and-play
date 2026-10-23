@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Aurora } from "./Aurora";
 
 export function PageHeader({
   emoji,
@@ -15,11 +16,12 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <header className="relative overflow-hidden border-b border-line bg-gradient-to-b from-brand-50 to-bg dark:from-brand-950/50">
+    <header className="relative isolate overflow-hidden border-b border-line bg-gradient-to-b from-brand-50 to-bg dark:from-brand-950/50">
+      <Aurora variant="header" />
       <div className="bg-dots absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent)]" aria-hidden />
       <div className={`relative mx-auto ${width} px-4 py-10 sm:px-6 sm:py-14`}>
         {emoji && (
-          <span className="mb-5 grid size-14 place-items-center rounded-2xl bg-surface text-3xl shadow-soft" aria-hidden>
+          <span className="animate-float mb-5 grid size-14 place-items-center rounded-2xl bg-surface/90 text-3xl shadow-lift ring-1 ring-white/60 backdrop-blur dark:ring-white/10" aria-hidden>
             {emoji}
           </span>
         )}

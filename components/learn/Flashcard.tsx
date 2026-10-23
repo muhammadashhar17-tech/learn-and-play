@@ -28,7 +28,7 @@ export function Flashcard({
   const turn = isRtl(locale) ? -180 : 180;
 
   return (
-    <div className="mx-auto w-full max-w-md [perspective:1400px]">
+    <div className="mx-auto w-full max-w-md transition-transform duration-300 [perspective:1400px] hover:-translate-y-1.5">
       <motion.div
         animate={{ rotateY: flipped ? turn : 0 }}
         transition={{ duration: 0.6, ease: [0.4, 0.2, 0.2, 1] }}

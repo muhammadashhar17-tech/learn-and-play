@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check, Flag, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -9,6 +9,7 @@ import { pick } from "@/data/types";
 import { DIFFICULTY_SETTINGS, optionText, type RoundQuestion } from "@/lib/quiz";
 import { Button } from "@/components/ui/Button";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
+import { burstFrom } from "@/lib/confetti";
 import { MuteToggle } from "@/components/ui/MuteToggle";
 import { TimerRing } from "./TimerRing";
 import type { AnswerRecord } from "./QuizGame";
@@ -47,7 +48,17 @@ export function QuizPlay({
   const locale = useLocale();
   const [confirmQuit, setConfirmQuit] = useState(false);
   const nextRef = useRef<HTMLButtonElement>(null);
+  const optionRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const cat = getCategory(category);
+
+  // Picking the right answer sends a little sparkle burst out of that button.
+  const choose = useCallback(
+    (i: number) => {
+      if (i === question.answer) burstFrom(optionRefs.current[i]);
+      onAnswer(i);
+    },
+    [question, onAnswer],
+  );
 
   // Keyboard: 1–4 picks an answer, Enter goes on.
   useEffect(() => {
@@ -56,11 +67,11 @@ export function QuizPlay({
       const target = e.target as HTMLElement;
       if (target.closest("input, textarea")) return;
       const n = Number(e.key);
-      if (!revealed && n >= 1 && n <= question.options.length) onAnswer(n - 1);
+      if (!revealed && n >= 1 && n <= question.options.length) choose(n - 1);
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [revealed, question, onAnswer, confirmQuit]);
+  }, [revealed, question, confirmQuit, choose]);
 
   // Move focus to "Next" once the answer is shown (good for keyboards & screen readers).
   useEffect(() => {
@@ -91,9 +102,16 @@ export function QuizPlay({
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <span className="rounded-xl bg-amber-100 px-3 py-2 text-sm font-bold text-amber-900 dark:bg-amber-900/40 dark:text-amber-100" aria-live="polite">
+          <motion.span
+            key={score}
+            initial={{ scale: score ? 1.3 : 1 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 12 }}
+            className="rounded-xl bg-gradient-to-r from-amber-100 to-amber-200 px-3 py-2 text-sm font-bold text-amber-900 shadow-sm dark:from-amber-900/50 dark:to-amber-800/40 dark:text-amber-100"
+            aria-live="polite"
+          >
             ⭐ {t("play.points", { points: score })}
-          </span>
+          </motion.span>
           <MuteToggle />
           <button
             type="button"
@@ -149,18 +167,23 @@ export function QuizPlay({
               const isAnswer = i === question.answer;
               const isPicked = answer?.picked === i;
               let style = "border-line bg-surface hover:border-brand-400 hover:bg-brand-50 dark:hover:bg-brand-900/30";
-              if (revealed && isAnswer) style = "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40";
+              if (revealed && isAnswer) style = "ring-pulse border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40";
               else if (revealed && isPicked) style = "animate-shake border-rose-500 bg-rose-50 dark:bg-rose-950/40";
               else if (revealed) style = "border-line bg-surface opacity-50";
               return (
                 <motion.button
                   key={i}
+                  ref={(el) => {
+                    optionRefs.current[i] = el;
+                  }}
                   type="button"
                   disabled={revealed}
-                  onClick={() => onAnswer(i)}
-                  whileTap={revealed ? undefined : { scale: 0.97 }}
-                  animate={revealed && isAnswer ? { scale: [1, 1.04, 1] } : { scale: 1 }}
-                  transition={{ duration: 0.35 }}
+                  onClick={() => choose(i)}
+                  whileHover={revealed ? undefined : { y: -3 }}
+                  whileTap={revealed ? undefined : { scale: 0.96 }}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0, scale: revealed && isAnswer ? [1, 1.05, 1] : 1 }}
+                  transition={{ duration: 0.35, delay: revealed ? 0 : 0.12 + i * 0.07 }}
                   aria-label={`${t("play.option", { number: i + 1 })}: ${optionText(opt, locale)}`}
                   className={`flex min-h-16 items-center gap-3 rounded-2xl border-2 px-4 py-3 text-start text-lg font-semibold text-ink transition-colors disabled:cursor-default ${style}`}
                 >

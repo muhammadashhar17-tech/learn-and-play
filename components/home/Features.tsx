@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, Brain, MessageCircle, type LucideIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/Reveal";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const FEATURES: { key: "quiz" | "learn" | "chat"; href: string; icon: LucideIcon; gradient: string; glow: string; emoji: string }[] = [
   { key: "quiz", href: "/quiz", icon: Brain, gradient: "from-brand-500 to-brand-700", glow: "group-hover:shadow-brand-500/30", emoji: "🧠" },
@@ -26,11 +26,11 @@ export function Features() {
         {FEATURES.map((f, i) => {
           const Icon = f.icon;
           return (
-            <Reveal key={f.key} delay={i * 0.1}>
-              <motion.div whileHover={{ y: -8 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="h-full">
+            <Reveal key={f.key} delay={i * 0.1} className="h-full">
+              <TiltCard className="rounded-3xl">
                 <Link
                   href={f.href}
-                  className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-soft transition-shadow duration-300 hover:shadow-2xl ${f.glow}`}
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-2xl dark:hover:border-brand-700 ${f.glow}`}
                 >
                   <span
                     className="pointer-events-none absolute -end-6 -top-6 text-8xl opacity-10 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110"
@@ -50,7 +50,7 @@ export function Features() {
                     <ArrowRight className="size-4 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" aria-hidden />
                   </span>
                 </Link>
-              </motion.div>
+              </TiltCard>
             </Reveal>
           );
         })}

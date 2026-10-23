@@ -9,6 +9,8 @@ import { optionText, type RoundQuestion } from "@/lib/quiz";
 import { addLeaderboardEntry, settingsStore, type QuizRecord } from "@/lib/progress";
 import { celebrate } from "@/lib/confetti";
 import { Button, ButtonLink } from "@/components/ui/Button";
+import { Aurora } from "@/components/ui/Aurora";
+import { CountUp } from "@/components/ui/CountUp";
 import type { AnswerRecord } from "./QuizGame";
 
 export function QuizResults({
@@ -41,9 +43,10 @@ export function QuizResults({
       <motion.section
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-600 to-brand-800 p-8 text-center text-white shadow-lift"
+        className="relative isolate overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-600 via-brand-700 to-violet-800 p-8 text-center text-white shadow-lift"
       >
-        <div className="bg-dots absolute inset-0 opacity-30" aria-hidden />
+        <Aurora variant="dark" />
+        <div className="bg-dots absolute inset-0 -z-10 opacity-30" aria-hidden />
         <div className="relative">
           <div className="flex justify-center gap-3" role="img" aria-label={t("stars", { stars: record.stars })}>
             {[1, 2, 3].map((n) => (
@@ -69,11 +72,15 @@ export function QuizResults({
           <dl className="mt-6 grid grid-cols-2 gap-3">
             <div className="rounded-2xl bg-white/10 p-4">
               <dt className="text-sm text-brand-100">{t("points")}</dt>
-              <dd className="font-latin text-3xl font-extrabold">{record.points}</dd>
+              <dd className="font-latin text-3xl font-extrabold">
+                <CountUp to={record.points} duration={1.2} />
+              </dd>
             </div>
             <div className="rounded-2xl bg-white/10 p-4">
               <dt className="text-sm text-brand-100">{t("accuracy")}</dt>
-              <dd className="font-latin text-3xl font-extrabold">{accuracy}%</dd>
+              <dd className="font-latin text-3xl font-extrabold">
+                <CountUp to={accuracy} duration={1.2} suffix="%" />
+              </dd>
             </div>
           </dl>
         </div>
