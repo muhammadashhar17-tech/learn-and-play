@@ -1,0 +1,530 @@
+{
+  "App": {
+    "name": "Learn & Play",
+    "homeLink": "Learn & Play — go to home page",
+    "redirecting": "Opening Learn & Play…"
+  },
+  "Nav": {
+    "mainNav": "Main navigation",
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "home": "Home",
+    "quiz": "Quiz",
+    "learn": "Learn",
+    "chat": "Chatbot",
+    "progress": "My Progress",
+    "leaderboard": "Leaderboard",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "Language": {
+    "label": "Choose language",
+    "switchTo": "Switch language to {name}",
+    "en": "English",
+    "ur": "Urdu",
+    "sd": "Sindhi",
+    "short": {
+      "en": "EN",
+      "ur": "اردو",
+      "sd": "سنڌي"
+    }
+  },
+  "Theme": {
+    "toDark": "Switch to dark mode",
+    "toLight": "Switch to light mode"
+  },
+  "Footer": {
+    "blurb": "A free learning app for Class 5 students in Sindh. Play quizzes, learn Urdu and Sindhi words, and chat with a friendly helper — in English, Urdu and Sindhi.",
+    "explore": "Explore",
+    "more": "More",
+    "rights": "© {year} Learn & Play. Free for every student.",
+    "madeWith": "Made with love for the students of Sindh"
+  },
+  "Common": {
+    "loading": "Loading…",
+    "back": "Back",
+    "next": "Next",
+    "close": "Close",
+    "tryAgain": "Try again",
+    "goHome": "Go to home page",
+    "errorTitle": "Oops! Something went wrong",
+    "errorText": "Don't worry — it's not your fault. Please try again.",
+    "cancel": "Cancel"
+  },
+  "NotFound": {
+    "code": "404",
+    "title": "This page went out to play!",
+    "text": "We looked everywhere but could not find this page. Let's get you back to learning.",
+    "home": "Back to home",
+    "quiz": "Play a quiz",
+    "learn": "Learn words"
+  },
+  "Meta": {
+    "appName": "Learn & Play",
+    "home": {
+      "title": "Fun learning in English, Urdu & Sindhi",
+      "description": "Free quizzes, flashcards and a friendly chatbot for Class 5 students in Sindh, Pakistan — in English, Urdu and Sindhi."
+    },
+    "quiz": {
+      "title": "Quiz Game",
+      "description": "Test yourself in General Knowledge, Science, Math, Pakistan & Sindh History and Language. Choose your level and beat the timer!"
+    },
+    "learn": {
+      "title": "Learn Sindhi & Urdu",
+      "description": "Flip flashcards to learn the alphabet, numbers, colors, animals and more in English, Urdu and Sindhi."
+    },
+    "chat": {
+      "title": "Ask the Chatbot",
+      "description": "Chat with a friendly offline helper that translates words, solves sums and shares fun facts about Pakistan and Sindh."
+    },
+    "progress": {
+      "title": "My Progress",
+      "description": "See your quiz history, best scores, completed lessons and badges."
+    },
+    "leaderboard": {
+      "title": "Leaderboard",
+      "description": "See the top quiz scores on this device."
+    },
+    "about": {
+      "title": "About",
+      "description": "Why we made Learn & Play and who it is for."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Send us a message, idea or question."
+    }
+  },
+  "Home": {
+    "hero": {
+      "badge": "For Class 5 · 100% free · Works offline",
+      "titleStart": "Learn, play and",
+      "titleHighlight": "grow every day!",
+      "subtitle": "Fun quizzes, talking flashcards and a friendly chatbot — made for Class 5 students of Sindh in English, Urdu and Sindhi.",
+      "ctaQuiz": "Start a quiz",
+      "ctaLearn": "Learn words",
+      "cardQuizLabel": "Quiz time!",
+      "cardQuestion": "What is the capital of Sindh?",
+      "cardAnswer": "Karachi",
+      "cardFlash": "Flashcard",
+      "cardChat": "Hi! Ask me anything 👋",
+      "cardPoints": "+10 points",
+      "illustration": "Preview of a quiz question, a flashcard and the chatbot"
+    },
+    "features": {
+      "title": "Three fun ways to learn",
+      "subtitle": "Pick what you like — every activity works in English, Urdu and Sindhi.",
+      "open": "Open",
+      "quiz": {
+        "title": "Quiz Game",
+        "text": "Five subjects, three levels and a ticking timer. Earn stars and climb the leaderboard!"
+      },
+      "learn": {
+        "title": "Learn Sindhi & Urdu",
+        "text": "Flip colourful flashcards, listen to words and practise with mini quizzes."
+      },
+      "chat": {
+        "title": "Friendly Chatbot",
+        "text": "Ask for a translation, a sum or a fun fact about Pakistan and Sindh."
+      }
+    },
+    "stats": {
+      "title": "Learning in numbers",
+      "questions": "Quiz questions",
+      "lessons": "Lessons",
+      "languages": "Languages",
+      "words": "Words to learn"
+    },
+    "testimonials": {
+      "title": "What our students say",
+      "previous": "Previous testimonial",
+      "next": "Next testimonial",
+      "goTo": "Show testimonial {number}",
+      "student": "Student, Class {grade}",
+      "teacher": "Teacher",
+      "parent": "Parent"
+    },
+    "cta": {
+      "title": "Ready to start your adventure?",
+      "text": "No sign-up needed. Just pick a game and play!",
+      "button": "Let's play!"
+    }
+  },
+  "Quiz": {
+    "title": "Quiz Game",
+    "subtitle": "Pick a subject and a level, then race the timer. 10 questions per round!",
+    "categories": {
+      "gk": {
+        "name": "General Knowledge",
+        "text": "Flags, animals, mountains and more."
+      },
+      "science": {
+        "name": "Science",
+        "text": "Planets, plants and the human body."
+      },
+      "math": {
+        "name": "Math",
+        "text": "Sums, tables and number puzzles."
+      },
+      "history": {
+        "name": "Pakistan & Sindh History",
+        "text": "Heroes, places and great events."
+      },
+      "language": {
+        "name": "Language",
+        "text": "Words in English, Urdu and Sindhi."
+      }
+    },
+    "difficulty": {
+      "label": "Level",
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard",
+      "seconds": "{seconds} sec per question",
+      "multiplier": "×{value} points"
+    },
+    "setup": {
+      "chooseCategory": "1. Choose a subject",
+      "chooseLevel": "2. Choose your level",
+      "start": "Start quiz",
+      "questions": "{count} questions",
+      "best": "Best: {points} pts",
+      "selected": "Selected"
+    },
+    "play": {
+      "questionOf": "Question {current} of {total}",
+      "score": "Score",
+      "points": "{points} pts",
+      "timeLeft": "{seconds} seconds left",
+      "timeUp": "Time's up! ⏰",
+      "correct": "Correct! Well done 🎉",
+      "wrong": "Not quite! The right answer is shown in green.",
+      "next": "Next question",
+      "finish": "See my results",
+      "quit": "Quit",
+      "quitConfirm": "Quit this quiz? Your answers will be lost.",
+      "option": "Option {number}",
+      "hint": "Tip: press 1–4 to answer and Enter for the next question.",
+      "earned": "+{points}"
+    },
+    "sound": {
+      "mute": "Mute sounds",
+      "unmute": "Turn sounds on"
+    },
+    "results": {
+      "title3": "Superstar!",
+      "title2": "Great job!",
+      "title1": "Good try!",
+      "title0": "Keep practising!",
+      "scoreLine": "You got {correct} out of {total} right",
+      "points": "Points",
+      "accuracy": "Accuracy",
+      "stars": "{stars} out of 3 stars",
+      "review": "Review your mistakes",
+      "noMistakes": "Perfect! No mistakes to review 🎯",
+      "yourAnswer": "Your answer",
+      "correctAnswer": "Correct answer",
+      "noAnswer": "No answer — time ran out",
+      "playAgain": "Play again",
+      "newCategory": "Choose another subject",
+      "viewProgress": "My progress",
+      "saveTitle": "Put your name on the leaderboard",
+      "nameLabel": "Your name",
+      "namePlaceholder": "e.g. Ayesha",
+      "save": "Save score",
+      "saved": "Saved! 🎉",
+      "openLeaderboard": "Open leaderboard",
+      "nameError": "Please write a name with 2 to 20 letters."
+    }
+  },
+  "Learn": {
+    "title": "Learn Sindhi & Urdu",
+    "subtitle": "Flip the cards, listen to the words and finish each lesson with a mini quiz.",
+    "lessons": {
+      "alphabet": {
+        "title": "Alphabet",
+        "text": "Sindhi letters — including the special ones Urdu does not have."
+      },
+      "numbers": {
+        "title": "Numbers 1–20",
+        "text": "Count from one to twenty in three languages."
+      },
+      "colors": {
+        "title": "Colours",
+        "text": "Red, blue, green and all the colours of the rainbow."
+      },
+      "animals": {
+        "title": "Animals",
+        "text": "From cats and camels to lions and parrots."
+      },
+      "family": {
+        "title": "Family",
+        "text": "Mother, father, brother, sister and more."
+      },
+      "greetings": {
+        "title": "Greetings",
+        "text": "Say hello, thank you and goodbye politely."
+      },
+      "fruits": {
+        "title": "Fruits",
+        "text": "Sindh's sweet mangoes, dates and other fruits."
+      },
+      "days": {
+        "title": "Days of the Week",
+        "text": "Monday to Sunday in English, Urdu and Sindhi."
+      }
+    },
+    "overview": "{done} of {total} lessons completed",
+    "cards": "{count} cards",
+    "completed": "Completed",
+    "best": "Best quiz: {score}%",
+    "start": "Start",
+    "review": "Review",
+    "allLessons": "All lessons",
+    "card": "Card {current} of {total}",
+    "flipHint": "Tap the card to flip it",
+    "flip": "Flip card",
+    "front": "Front of card",
+    "back": "Back of card",
+    "previousCard": "Previous card",
+    "nextCard": "Next card",
+    "shuffle": "Shuffle cards",
+    "listen": "Listen in {language}",
+    "noVoices": "Tip: install an Urdu voice on this device to hear words read aloud.",
+    "sayIt": "Say it",
+    "letter": "Letter",
+    "nearestUrdu": "Urdu letter: {letter}",
+    "sindhiOnly": "Only in Sindhi",
+    "example": "Example word",
+    "practice": "Practice quiz",
+    "practiceReady": "You've seen all the cards. Ready for a mini quiz?",
+    "practiceTitle": "Mini quiz: {lesson}",
+    "practiceQuestion": "What is “{word}” in {language}?",
+    "questionOf": "Question {current} of {total}",
+    "correct": "Correct! 🎉",
+    "wrong": "Not quite — the answer is “{answer}”.",
+    "next": "Next",
+    "finish": "Finish",
+    "resultTitle": "You got {correct} out of {total}!",
+    "passed": "Lesson complete! A new badge may be waiting for you 🏅",
+    "failed": "Almost there! Get {needed} right to complete this lesson.",
+    "tryAgain": "Try again",
+    "backToCards": "Back to the cards",
+    "nextLesson": "Next lesson",
+    "notFound": "This lesson does not exist."
+  },
+  "Chat": {
+    "title": "Ask Saathi",
+    "subtitle": "Your friendly helper. Ask for a translation, a sum, a fun fact or about Pakistan and Sindh.",
+    "botName": "Saathi",
+    "you": "You",
+    "online": "Works offline",
+    "placeholder": "Type your question…",
+    "inputLabel": "Your message",
+    "send": "Send",
+    "clear": "Start a new chat",
+    "typing": "Saathi is typing…",
+    "tryAsking": "Try asking:",
+    "privacy": "Saathi runs on this device. Your messages are never sent anywhere.",
+    "openPage": "Open {page}",
+    "error": "Sorry, I got confused. Please try again!",
+    "bot": {
+      "welcome": "Hi! I'm Saathi 👋 I can translate words, solve sums, share fun facts and tell you about Pakistan and Sindh. What would you like to know?",
+      "greeting": "Wa alaikum assalam! 😊 How can I help you today?",
+      "thanks": "You're welcome! Keep learning and keep shining ⭐",
+      "intro": "I'm Saathi, the Learn & Play helper robot 🤖. I live inside this app and I love helping students learn!",
+      "howAreYou": "I'm great, thank you for asking! 😄 Ready to learn something new?",
+      "help": "I can: 🔤 translate words (try “What is cat in Sindhi?”), ➗ solve sums (“12 × 8”), 🤓 share fun facts, 🌙 tell you about Pakistan, Sindh, Bhittai and Iqbal, and 🧭 open pages like the quiz.",
+      "fallback": "Hmm, I'm still learning that one! 🤔 You can ask me to translate a word, solve a sum, tell a fun fact, or ask about Pakistan and Sindh.",
+      "mathResult": "{expression} = {result} ✅ Great maths question!",
+      "divideByZero": "Oops! We can't divide by zero — even a computer can't! 😅",
+      "translateTo": "“{word}” in {language} is “{answer}”.",
+      "translateAll": "Here is “{word}” in English, Urdu and Sindhi:",
+      "unknownWord": "I don't know that word yet. Try a word from our lessons, like apple, cat, red or mother.",
+      "factIntro": "🤓 Did you know?",
+      "navigate": "Sure! Tap a button to open it:",
+      "languages": {
+        "en": "English",
+        "ur": "Urdu",
+        "sd": "Sindhi"
+      },
+      "suggestions": {
+        "translate": "What is 'apple' in Sindhi?",
+        "math": "What is 12 × 8?",
+        "math2": "What is 144 ÷ 12?",
+        "fact": "Tell me a fun fact",
+        "fact2": "Another fun fact!",
+        "bhittai": "Who was Shah Abdul Latif Bhittai?",
+        "iqbal": "Who was Allama Iqbal?",
+        "sindh": "Tell me about Sindh",
+        "quiz": "Open the quiz",
+        "more": "Tell me about Mohenjo-daro"
+      }
+    }
+  },
+  "Progress": {
+    "title": "My Progress",
+    "subtitle": "Your quizzes, lessons and badges — saved safely on this device.",
+    "emptyTitle": "Nothing here yet!",
+    "emptyText": "Play your first quiz or finish a lesson, and your progress will appear here.",
+    "playQuiz": "Play a quiz",
+    "startLesson": "Start a lesson",
+    "stats": {
+      "quizzes": "Quizzes played",
+      "points": "Total points",
+      "best": "Best score",
+      "lessons": "Lessons done",
+      "accuracy": "Average accuracy"
+    },
+    "chartTitle": "Your last quizzes",
+    "chartSubtitle": "Accuracy of each quiz, oldest to newest",
+    "chartEmpty": "Play a quiz to see your chart.",
+    "chartBar": "Quiz {number}: {category}, {accuracy}% correct",
+    "tableDate": "Date",
+    "tableSubject": "Subject",
+    "tableLevel": "Level",
+    "tableScore": "Score",
+    "tablePoints": "Points",
+    "tableStars": "Stars",
+    "categoriesTitle": "Best in each subject",
+    "notPlayed": "Not played yet",
+    "lessonsTitle": "Lessons",
+    "lessonDone": "Completed",
+    "lessonTodo": "Not finished",
+    "badgesTitle": "Badges",
+    "badgesCount": "{earned} of {total} earned",
+    "locked": "Locked",
+    "historyTitle": "Quiz history",
+    "reset": "Reset my progress",
+    "resetConfirm": "Delete all your quiz history, lessons and badges on this device? This cannot be undone.",
+    "resetDone": "Your progress has been reset.",
+    "badges": {
+      "firstQuiz": {
+        "name": "First Steps",
+        "text": "Finish your first quiz."
+      },
+      "quizFan": {
+        "name": "Quiz Fan",
+        "text": "Play 5 quizzes."
+      },
+      "quizChampion": {
+        "name": "Quiz Champion",
+        "text": "Play 20 quizzes."
+      },
+      "perfect": {
+        "name": "Perfect Score",
+        "text": "Get every answer right in a quiz."
+      },
+      "superstar": {
+        "name": "Superstar",
+        "text": "Win 3 stars in a quiz."
+      },
+      "hardHero": {
+        "name": "Hard Hero",
+        "text": "Win 2 or more stars on Hard level."
+      },
+      "explorer": {
+        "name": "Explorer",
+        "text": "Play a quiz in every subject."
+      },
+      "collector": {
+        "name": "Point Collector",
+        "text": "Collect 500 points in total."
+      },
+      "wordLearner": {
+        "name": "Word Learner",
+        "text": "Complete your first lesson."
+      },
+      "bookworm": {
+        "name": "Bookworm",
+        "text": "Complete 4 lessons."
+      },
+      "languageMaster": {
+        "name": "Language Master",
+        "text": "Complete all 8 lessons."
+      },
+      "chatterbox": {
+        "name": "Chatterbox",
+        "text": "Send 5 messages to Saathi."
+      }
+    }
+  },
+  "Leaderboard": {
+    "title": "Leaderboard",
+    "subtitle": "The top quiz scores on this device. Play a quiz and add your name!",
+    "all": "All subjects",
+    "filterLabel": "Show scores for",
+    "rank": "Rank",
+    "name": "Name",
+    "points": "Points",
+    "subject": "Subject",
+    "score": "Score",
+    "date": "Date",
+    "pointsValue": "{points} pts",
+    "you": "You",
+    "emptyTitle": "No scores yet",
+    "emptyText": "Be the first champion! Finish a quiz and save your name.",
+    "play": "Play a quiz",
+    "clear": "Clear leaderboard",
+    "clearConfirm": "Remove every name and score from this device's leaderboard?",
+    "place": "Place {rank}"
+  },
+  "About": {
+    "title": "About Learn & Play",
+    "subtitle": "A free learning app made with love for Class 5 students of Sindh.",
+    "missionTitle": "Our mission",
+    "missionText": "Every child should enjoy learning in the languages of their home. Learn & Play mixes quizzes, flashcards and a friendly chatbot so students can practise English, Urdu and Sindhi — and learn about Pakistan and Sindh — while having fun.",
+    "schoolTitle": "Made for our school",
+    "schoolName": "Your School Name",
+    "schoolText": "Learn & Play was created for the Class 5 students and teachers of {school} in Sindh, Pakistan. The questions and words match what children learn in Class 5, and any school can use it for free.",
+    "featuresTitle": "What's inside",
+    "feature1": "75 quiz questions in five subjects, with three levels",
+    "feature2": "8 picture lessons with more than 100 words in three languages",
+    "feature3": "Saathi, an offline chatbot that translates, counts and tells facts",
+    "feature4": "Badges, a leaderboard and a progress chart to stay motivated",
+    "languagesTitle": "Why three languages?",
+    "languagesText": "Sindhi is the mother tongue of many of our students, Urdu is our national language, and English opens doors to the world. Seeing a word in all three helps children connect what they already know with what they are learning.",
+    "privacyTitle": "Safe and private",
+    "privacyText": "There are no accounts and no ads. Everything — scores, lessons and chats — stays on this device. The app even works without internet once it has been opened.",
+    "teachersTitle": "For teachers",
+    "teachersText": "Open the app on a classroom projector, choose a quiz and let the class answer together. Use the lessons for short daily vocabulary practice.",
+    "cta": "Start learning"
+  },
+  "Contact": {
+    "title": "Contact us",
+    "subtitle": "Have a question, an idea or found a problem? We'd love to hear from you.",
+    "formTitle": "Send a message",
+    "name": "Your name",
+    "namePlaceholder": "e.g. Ayesha Khan",
+    "email": "Your email",
+    "emailPlaceholder": "you@example.com",
+    "subject": "Topic",
+    "subjects": {
+      "question": "A question",
+      "idea": "An idea for the app",
+      "problem": "Something is not working",
+      "other": "Something else"
+    },
+    "message": "Message",
+    "messagePlaceholder": "Write your message here…",
+    "send": "Open my email app",
+    "required": "Please fill in this field.",
+    "nameInvalid": "Please write your name (at least 2 letters).",
+    "emailInvalid": "Please write a correct email address, like name@example.com.",
+    "messageInvalid": "Please write a message of at least 10 letters.",
+    "errorSummary": "Please fix the highlighted fields.",
+    "successTitle": "Your email app is opening!",
+    "successText": "Press “Send” in your email app to deliver the message. If nothing opened, write to us directly at {email}.",
+    "copy": "Copy email address",
+    "copied": "Copied!",
+    "again": "Write another message",
+    "emailSubject": "Learn & Play — {topic}",
+    "emailBody": "Name: {name}\nEmail: {email}\n\n{message}",
+    "infoTitle": "Other ways to reach us",
+    "infoEmail": "Email",
+    "infoSchool": "School",
+    "infoNote": "We usually reply within a few school days.",
+    "howTitle": "How does this form work?",
+    "howText": "This app has no server, so the form opens your own email app with your message already written. You can check it before sending."
+  }
+}
