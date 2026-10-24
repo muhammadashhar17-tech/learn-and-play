@@ -576,5 +576,11 @@
     "a6": "Yes. Scores, lessons and chats stay only on this device. Nothing is sent to any server.",
     "q7": "Who can I contact for help or ideas?",
     "a7": "Please contact {name} at <mail>{email}</mail>. We are always happy to hear from teachers, parents and students."
+  },
+  "Install": {
+    "title": "Install Learn & Play",
+    "text": "Get the app icon on your screen. It opens like an app, even offline.",
+    "button": "Install",
+    "dismiss": "Not now"
   }
 }
