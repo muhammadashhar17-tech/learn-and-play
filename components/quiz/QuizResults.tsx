@@ -117,7 +117,7 @@ export function QuizResults({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 + i * 0.05 }}
-                className="rounded-2xl border border-line bg-surface p-5 shadow-sm"
+                className="rounded-[1.25rem] border-2 border-white bg-surface p-5 shadow-soft dark:border-white/5"
               >
                 <p className="font-bold text-ink">{pick(q.question.q, locale)}</p>
                 <p className="mt-3 flex items-start gap-2 text-rose-700 dark:text-rose-300">
@@ -172,7 +172,7 @@ function SaveScore({ record }: { record: QuizRecord }) {
 
   if (saved) {
     return (
-      <div className="mt-6 flex flex-col items-center gap-3 rounded-3xl border border-line bg-surface p-6 text-center shadow-soft sm:flex-row sm:justify-between sm:text-start">
+      <div className="mt-6 flex flex-col items-center gap-3 rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 p-6 text-center shadow-soft sm:flex-row sm:justify-between sm:text-start">
         <p className="text-lg font-bold text-ink">{t("saved")}</p>
         <ButtonLink href="/leaderboard" variant="secondary">
           <Trophy className="size-5 text-amber-500" aria-hidden />
@@ -183,7 +183,7 @@ function SaveScore({ record }: { record: QuizRecord }) {
   }
 
   return (
-    <form onSubmit={submit} noValidate className="mt-6 rounded-3xl border border-line bg-surface p-6 shadow-soft">
+    <form onSubmit={submit} noValidate className="mt-6 rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 p-6 shadow-soft">
       <h2 className="flex items-center gap-2 text-lg font-bold text-ink">
         <Trophy className="size-5 text-amber-500" aria-hidden />
         {t("saveTitle")}

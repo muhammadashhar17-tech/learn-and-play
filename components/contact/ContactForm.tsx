@@ -107,7 +107,7 @@ export function ContactForm() {
           animate={{ opacity: 1 }}
           onSubmit={submit}
           noValidate
-          className="space-y-5 rounded-3xl border border-line bg-surface p-6 shadow-soft sm:p-8"
+          className="space-y-5 rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 p-6 shadow-soft sm:p-8"
         >
           <h2 className="text-xl font-bold text-ink">{t("formTitle")}</h2>
 

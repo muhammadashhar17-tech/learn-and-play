@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Brain, Trash2 } from "lucide-react";
+import { Brain, Crown, Trash2, Trophy } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { CATEGORIES, type CategoryId } from "@/data/quiz";
 import { clearLeaderboard, leaderboardStore, settingsStore, type LeaderboardEntry } from "@/lib/progress";
@@ -10,8 +10,28 @@ import { useHydrated, useStore } from "@/lib/storage";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { EmptyState, Skeleton } from "@/components/ui/States";
+import { CATEGORY_ICONS } from "@/lib/icons";
 
-const MEDALS = ["🥇", "🥈", "🥉"];
+const MEDAL_TONES = [
+  "from-yellow-300 via-amber-400 to-amber-600 text-amber-950",
+  "from-slate-100 via-slate-300 to-slate-500 text-slate-800",
+  "from-orange-300 via-orange-400 to-amber-700 text-orange-950",
+];
+
+/** Gold / silver / bronze clay medal with the place number. */
+function RankMedal({ rank, large = false }: { rank: number; large?: boolean }) {
+  return (
+    <span
+      className={`clay-tile font-latin relative grid place-items-center rounded-full bg-gradient-to-br font-black ring-2 ring-white/70 ${MEDAL_TONES[rank]} ${
+        large ? "size-14 text-2xl sm:size-16" : "size-8 text-sm"
+      }`}
+      aria-hidden
+    >
+      {rank === 0 && large && <Crown className="absolute -top-5 size-6 fill-amber-300 text-amber-500" />}
+      {rank + 1}
+    </span>
+  );
+}
 // Podium order on screen: 2nd, 1st, 3rd (mirrors automatically in RTL).
 const PODIUM_ORDER = [1, 0, 2];
 const PODIUM_HEIGHT = ["h-36", "h-28", "h-20"];
@@ -46,7 +66,7 @@ export function LeaderboardView() {
       <div role="radiogroup" aria-label={t("filterLabel")} className="flex flex-wrap gap-2">
         {(["all", ...CATEGORIES.map((c) => c.id)] as const).map((id) => {
           const active = filter === id;
-          const cat = CATEGORIES.find((c) => c.id === id);
+          const CatIcon = id === "all" ? null : CATEGORY_ICONS[id].icon;
           return (
             <button
               key={id}
@@ -54,13 +74,13 @@ export function LeaderboardView() {
               role="radio"
               aria-checked={active}
               onClick={() => setFilter(id)}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold transition active:scale-95 ${
+              className={`inline-flex min-h-11 items-center gap-2 rounded-full border-2 px-4 py-2 text-sm font-bold transition duration-200 active:translate-y-0.5 ${
                 active
-                  ? "border-brand-600 bg-brand-600 text-white"
-                  : "border-line bg-surface text-ink hover:border-brand-300"
+                  ? "btn-clay border-transparent bg-gradient-to-b from-brand-500 to-brand-700 text-white"
+                  : "border-white bg-surface text-ink shadow-soft hover:-translate-y-0.5 dark:border-white/5"
               }`}
             >
-              {cat && <span aria-hidden>{cat.emoji} </span>}
+              {CatIcon && <CatIcon className="size-4" aria-hidden />}
               {id === "all" ? t("all") : quiz(`categories.${id}.name`)}
             </button>
           );
@@ -70,7 +90,8 @@ export function LeaderboardView() {
       {list.length === 0 ? (
         <div className="mt-8">
           <EmptyState
-            emoji="🏆"
+            icon={Trophy}
+            tile="from-amber-300 to-amber-600"
             title={t("emptyTitle")}
             text={t("emptyText")}
             action={
@@ -95,10 +116,9 @@ export function LeaderboardView() {
                         initial={{ scale: 0, y: 20 }}
                         animate={{ scale: 1, y: 0 }}
                         transition={{ delay: 0.15 + rank * 0.15, type: "spring", stiffness: 220, damping: 12 }}
-                        className="text-4xl sm:text-5xl"
-                        aria-hidden
+                        className="mt-5"
                       >
-                        {MEDALS[rank]}
+                        <RankMedal rank={rank} large />
                       </motion.span>
                       <p className="mt-1 max-w-full truncate text-center font-bold text-ink" dir="auto">{e.name}</p>
                       <p className="font-latin text-sm font-semibold text-muted">{e.points}</p>
@@ -109,7 +129,7 @@ export function LeaderboardView() {
                     initial={{ height: 0 }}
                     animate={{ height: "auto" }}
                     transition={{ duration: 0.5, delay: rank * 0.1 }}
-                    className={`mt-2 w-full overflow-hidden rounded-t-2xl bg-gradient-to-b ${
+                    className={`clay-tile mt-2 w-full overflow-hidden rounded-t-[1.5rem] bg-gradient-to-b ${
                       rank === 0 ? "from-amber-300 to-amber-500" : rank === 1 ? "from-slate-200 to-slate-400 dark:from-slate-500 dark:to-slate-700" : "from-orange-300 to-orange-500"
                     }`}
                   >
@@ -123,7 +143,7 @@ export function LeaderboardView() {
           </ol>
 
           {/* Full table */}
-          <div className="mt-8 overflow-x-auto rounded-3xl border border-line bg-surface shadow-soft">
+          <div className="mt-8 overflow-x-auto rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 shadow-soft">
             <table className="w-full min-w-[34rem] text-sm">
               <thead>
                 <tr className="border-b border-line text-muted">
@@ -146,7 +166,7 @@ export function LeaderboardView() {
                       exit={{ opacity: 0 }}
                       className={`border-b border-line/60 last:border-0 ${isMe(e) ? "bg-brand-50 dark:bg-brand-900/30" : ""}`}
                     >
-                      <td className="font-latin px-4 py-3 font-bold text-ink">{i < 3 ? MEDALS[i] : i + 1}</td>
+                      <td className="font-latin px-4 py-3 font-bold text-ink">{i < 3 ? <RankMedal rank={i} /> : <span className="grid size-8 place-items-center">{i + 1}</span>}</td>
                       <td className="px-4 py-3 font-semibold text-ink">
                         <span dir="auto">{e.name}</span>
                         {isMe(e) && (

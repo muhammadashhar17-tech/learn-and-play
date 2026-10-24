@@ -1,6 +1,6 @@
 # Learn & Play · سیکھو اور کھیلو · سکو ۽ کيڏو
 
-A free, multilingual learning web app for **Class 5 students** in Sindh, Pakistan.
+A free, multilingual learning web app for **primary school students (Class 1–5)** in Sindh, Pakistan.
 It is **one website in three languages**: the switch at the top of every page
 (EN · اردو · سنڌي) changes the whole site between **English, Urdu and Sindhi**
 (with proper right-to-left layout). It runs **without a server or database** and
@@ -20,10 +20,17 @@ can be installed on phones as an app.
 | **Leaderboard** | Top scores saved on this device |
 | **About / Contact** | About the app and school; a contact form that opens the visitor's e-mail app |
 
-### Made for Class 5
-Questions and words follow the Class 5 level (e.g. LCM and fractions in Math, states
-of water in Science, Pakistan & Sindh studies). Timers give young readers enough time
-(30 / 25 / 20 seconds), because Urdu and Sindhi take longer to read.
+### Made for primary school (Class 1–5)
+Each quiz level matches a class band: **Easy = Class 1–2** (40 s per question),
+**Medium = Class 3–4** (30 s) and **Hard = Class 5** (20 s). The Home page explains
+this in its "A level for every class" section, and the Contact page has an FAQ.
+Contact person shown in the app: **Sana**, sanaqureshi1947@gmail.com (`data/site.ts`
+and `Contact.personName` in the message files).
+
+### Design
+The look follows the **UI/UX Pro Max** skill's recommendation for children's
+education apps: "claymorphism" (soft 3D cards and buttons), Nunito + DM Sans for
+English, and one consistent SVG icon family (Lucide) instead of emoji icons.
 
 Everything a student does is saved in their own browser (`localStorage`). Nothing is
 sent anywhere.
@@ -64,7 +71,8 @@ npm run icons      # regenerate icons + Open Graph image from public/icon.svg
 
 1. **School name:** set to "Govt Girls School" (`schoolName` in `messages/en.json`,
    `messages/ur.json` and `messages/sd.json`). Change it there if needed.
-2. **Contact e-mail:** edit `contactEmail` in `data/site.ts`.
+2. **Contact:** Sana, sanaqureshi1947@gmail.com (`contactEmail` in `data/site.ts`,
+   `personName` in the message files).
 3. **Testimonials:** replace the sample quotes in `data/testimonials.ts`.
 4. **Translations:** ask a native speaker to check the list in
    [`TRANSLATIONS_TO_REVIEW.md`](./TRANSLATIONS_TO_REVIEW.md).

@@ -1,5 +1,6 @@
 "use client";
 
+import { BookOpen, CircleHelp, Languages, Type, type LucideIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Reveal } from "@/components/ui/Reveal";
 import { Aurora } from "@/components/ui/Aurora";
@@ -12,11 +13,11 @@ export interface StatValues {
   words: number;
 }
 
-const ITEMS: { key: keyof StatValues; emoji: string }[] = [
-  { key: "questions", emoji: "❓" },
-  { key: "lessons", emoji: "📖" },
-  { key: "languages", emoji: "🌍" },
-  { key: "words", emoji: "🔤" },
+const ITEMS: { key: keyof StatValues; icon: LucideIcon }[] = [
+  { key: "questions", icon: CircleHelp },
+  { key: "lessons", icon: BookOpen },
+  { key: "languages", icon: Languages },
+  { key: "words", icon: Type },
 ];
 
 export function Stats({ values }: { values: StatValues }) {
@@ -32,9 +33,11 @@ export function Stats({ values }: { values: StatValues }) {
         </Reveal>
         <dl className="relative mt-10 grid grid-cols-2 gap-6 lg:grid-cols-4">
           {ITEMS.map((s, i) => (
-            <Reveal key={s.key} delay={i * 0.08} className="rounded-2xl bg-white/10 p-5 text-center ring-1 ring-white/15 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:bg-white/15">
-              <span className="text-3xl" aria-hidden>{s.emoji}</span>
-              <dd className="font-latin mt-2 text-4xl font-extrabold sm:text-5xl">
+            <Reveal key={s.key} delay={i * 0.08} className="rounded-[1.5rem] bg-white/10 p-5 text-center shadow-[inset_0_1px_0_rgb(255_255_255/0.25)] ring-1 ring-white/15 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:bg-white/15">
+              <span className="mx-auto grid size-11 place-items-center rounded-2xl bg-white/15 ring-1 ring-white/25" aria-hidden>
+                <s.icon className="size-6" strokeWidth={2.25} />
+              </span>
+              <dd className="font-latin mt-3 text-4xl font-black sm:text-5xl">
                 <CountUp to={values[s.key]} />
               </dd>
               <dt className="mt-1 font-semibold text-brand-100">{t(s.key)}</dt>

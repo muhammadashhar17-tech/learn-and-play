@@ -35,7 +35,7 @@ export function ConfirmDialog({
         onCancel();
       }}
       onClick={(e) => e.target === ref.current && onCancel()}
-      className="m-auto w-[min(92vw,26rem)] rounded-3xl border border-line bg-surface p-0 text-ink shadow-lift backdrop:bg-brand-950/50 backdrop:backdrop-blur-sm"
+      className="m-auto w-[min(92vw,26rem)] rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 p-0 text-ink shadow-lift backdrop:bg-brand-950/50 backdrop:backdrop-blur-sm"
     >
       <div className="p-6 text-center">
         <p className="text-lg font-semibold">{message}</p>

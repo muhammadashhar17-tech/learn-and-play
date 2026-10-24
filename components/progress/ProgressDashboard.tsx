@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { BookOpen, Brain, CheckCircle2, Circle, Lock, Trash2 } from "lucide-react";
+import { BookOpen, Brain, CheckCircle2, Circle, Library, Lock, Sprout, Star, Target, Trash2, Trophy } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { CATEGORIES } from "@/data/quiz";
 import { LESSONS } from "@/data/lessons";
@@ -14,6 +14,8 @@ import { Button, ButtonLink } from "@/components/ui/Button";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { EmptyState, Skeleton } from "@/components/ui/States";
 import { Reveal } from "@/components/ui/Reveal";
+import { ClayIcon } from "@/components/ui/ClayIcon";
+import { BADGE_ICONS, CATEGORY_ICONS, LESSON_ICONS } from "@/lib/icons";
 import { AccuracyChart } from "./AccuracyChart";
 
 export function ProgressDashboard() {
@@ -38,7 +40,8 @@ export function ProgressDashboard() {
     return (
       <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6">
         <EmptyState
-          emoji="🌱"
+          icon={Sprout}
+          tile="from-emerald-400 to-green-600"
           title={t("emptyTitle")}
           text={t("emptyText")}
           action={
@@ -60,11 +63,11 @@ export function ProgressDashboard() {
   }
 
   const tiles = [
-    { label: t("stats.quizzes"), value: stats.quizzes, emoji: "🧠" },
-    { label: t("stats.points"), value: stats.points, emoji: "⭐" },
-    { label: t("stats.best"), value: stats.best, emoji: "🏆" },
-    { label: t("stats.lessons"), value: `${stats.lessons}/${LESSONS.length}`, emoji: "📚" },
-    { label: t("stats.accuracy"), value: `${stats.accuracy}%`, emoji: "🎯" },
+    { label: t("stats.quizzes"), value: stats.quizzes, icon: Brain, tile: "from-brand-400 to-brand-700" },
+    { label: t("stats.points"), value: stats.points, icon: Star, tile: "from-yellow-300 to-amber-500" },
+    { label: t("stats.best"), value: stats.best, icon: Trophy, tile: "from-amber-300 to-orange-500" },
+    { label: t("stats.lessons"), value: `${stats.lessons}/${LESSONS.length}`, icon: Library, tile: "from-emerald-400 to-teal-600" },
+    { label: t("stats.accuracy"), value: `${stats.accuracy}%`, icon: Target, tile: "from-pink-400 to-rose-600" },
   ];
 
   const history = [...progress.quizzes].reverse().slice(0, 20);
@@ -79,10 +82,10 @@ export function ProgressDashboard() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05 }}
-            className={`rounded-3xl border border-line bg-surface p-5 shadow-soft ${i === 4 ? "col-span-2 md:col-span-1" : ""}`}
+            className={`rounded-[1.75rem] border-2 border-white bg-surface p-5 shadow-soft dark:border-white/5 ${i === 4 ? "col-span-2 md:col-span-1" : ""}`}
           >
-            <span className="text-2xl" aria-hidden>{tile.emoji}</span>
-            <dt className="mt-2 text-sm font-semibold text-muted">{tile.label}</dt>
+            <ClayIcon icon={tile.icon} tile={tile.tile} size="sm" />
+            <dt className="mt-3 text-sm font-semibold text-muted">{tile.label}</dt>
             <dd className="font-latin text-3xl font-extrabold text-ink">{tile.value}</dd>
           </motion.div>
         ))}
@@ -103,13 +106,16 @@ export function ProgressDashboard() {
               return (
                 <li key={c.id}>
                   <div className="flex items-center justify-between gap-2 text-sm">
-                    <span className="flex items-center gap-2 font-semibold text-ink">
-                      <span aria-hidden>{c.emoji}</span>
+                    <span className="flex items-center gap-2.5 font-semibold text-ink">
+                      <ClayIcon icon={CATEGORY_ICONS[c.id].icon} tile={CATEGORY_ICONS[c.id].tile} size="xs" />
                       {quiz(`categories.${c.id}.name`)}
                     </span>
-                    <span className="font-latin shrink-0 text-muted">
-                      {rec ? `${"★".repeat(rec.stars)}${"☆".repeat(3 - rec.stars)} · ${rec.points}` : ""}
-                    </span>
+                    {rec && (
+                      <span className="font-latin flex shrink-0 items-center gap-1.5 text-muted">
+                        <Stars count={rec.stars} />
+                        {rec.points}
+                      </span>
+                    )}
                   </div>
                   {rec ? (
                     <div className="mt-1.5 h-2.5 overflow-hidden rounded-full bg-surface-2" role="img" aria-label={`${pct}%`}>
@@ -139,22 +145,24 @@ export function ProgressDashboard() {
               return (
                 <li
                   key={b.id}
-                  className={`relative flex flex-col items-center rounded-2xl border p-4 text-center transition ${
+                  className={`relative flex flex-col items-center rounded-[1.5rem] border-2 p-4 text-center transition duration-200 ${
                     got
-                      ? "border-amber-300 bg-gradient-to-b from-amber-50 to-surface shadow-sm dark:border-amber-700 dark:from-amber-950/40"
+                      ? "border-white bg-gradient-to-b from-amber-50 to-surface shadow-soft hover:-translate-y-1 dark:border-white/5 dark:from-amber-950/30"
                       : "border-dashed border-line bg-surface-2/50"
                   }`}
                 >
-                  <span className={`text-4xl ${got ? "" : "opacity-40 grayscale"}`} aria-hidden>
-                    {b.emoji}
-                  </span>
+                  <ClayIcon
+                    icon={BADGE_ICONS[b.id].icon}
+                    tile={got ? BADGE_ICONS[b.id].tile : "from-slate-300 to-slate-400 dark:from-slate-600 dark:to-slate-700"}
+                    className={got ? "" : "opacity-60"}
+                  />
                   {!got && (
                     <span className="absolute end-2 top-2 text-muted">
                       <Lock className="size-4" aria-hidden />
                       <span className="sr-only">{t("locked")}</span>
                     </span>
                   )}
-                  <p className={`mt-2 text-sm font-bold ${got ? "text-ink" : "text-muted"}`}>{t(`badges.${b.id}.name`)}</p>
+                  <p className={`mt-3 text-sm font-bold ${got ? "text-ink" : "text-muted"}`}>{t(`badges.${b.id}.name`)}</p>
                   <p className="mt-0.5 text-xs text-muted">{t(`badges.${b.id}.text`)}</p>
                 </li>
               );
@@ -173,9 +181,9 @@ export function ProgressDashboard() {
                 <li key={l.id}>
                   <Link
                     href={`/learn/${l.id}`}
-                    className="flex items-center gap-3 rounded-2xl border border-line px-4 py-3 transition hover:border-brand-300 hover:bg-surface-2"
+                    className="flex items-center gap-3 rounded-2xl border-2 border-white bg-surface px-4 py-3 shadow-soft transition duration-200 hover:-translate-y-0.5 dark:border-white/5"
                   >
-                    <span className="text-2xl" aria-hidden>{l.emoji}</span>
+                    <ClayIcon icon={LESSON_ICONS[l.id].icon} tile={LESSON_ICONS[l.id].tile} size="sm" />
                     <span className="min-w-0 flex-1">
                       <span className="block truncate font-semibold text-ink">{learn(`lessons.${l.id}.title`)}</span>
                       <span className="block text-xs text-muted">{done ? t("lessonDone") : t("lessonTodo")}</span>
@@ -220,8 +228,7 @@ export function ProgressDashboard() {
                       <td className="font-latin px-2 py-2.5 text-ink">{q.correct}/{q.total}</td>
                       <td className="font-latin px-2 py-2.5 font-bold text-ink">{q.points}</td>
                       <td className="px-2 py-2.5 text-amber-500" aria-label={quiz("results.stars", { stars: q.stars })}>
-                        {"★".repeat(q.stars)}
-                        <span className="text-line">{"★".repeat(3 - q.stars)}</span>
+                        <Stars count={q.stars} />
                       </td>
                     </tr>
                   ))}
@@ -257,7 +264,7 @@ export function ProgressDashboard() {
 
 function Card({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-3xl border border-line bg-surface p-6 shadow-soft">
+    <section className="rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 p-6 shadow-soft">
       <h2 className="text-lg font-bold text-ink">{title}</h2>
       {subtitle && <p className="text-sm text-muted">{subtitle}</p>}
       <div className="mt-5">{children}</div>
@@ -279,5 +286,16 @@ function DashboardSkeleton() {
       </div>
       <Skeleton className="h-56" />
     </div>
+  );
+}
+
+/** 0–3 small stars (filled = earned). Decorative; the number is announced nearby. */
+function Stars({ count }: { count: number }) {
+  return (
+    <span className="inline-flex gap-0.5" aria-hidden>
+      {[1, 2, 3].map((n) => (
+        <Star key={n} className={`size-3.5 ${n <= count ? "fill-amber-400 text-amber-400" : "fill-surface-2 text-line"}`} />
+      ))}
+    </span>
   );
 }

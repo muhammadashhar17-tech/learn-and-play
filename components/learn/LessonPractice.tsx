@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Check, Layers, RotateCcw, X } from "lucide-react";
+import { ArrowRight, Award, Check, Dumbbell, Layers, RotateCcw, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import type { Lesson, Word } from "@/data/lessons";
 import type { Locale } from "@/i18n/routing";
@@ -11,6 +11,7 @@ import { completeLesson } from "@/lib/progress";
 import { playSound } from "@/lib/sound";
 import { celebrate } from "@/lib/confetti";
 import { Button, ButtonLink } from "@/components/ui/Button";
+import { ClayIcon } from "@/components/ui/ClayIcon";
 import { SCRIPT_CLASS } from "./Flashcard";
 
 const QUESTION_COUNT = 6;
@@ -97,9 +98,14 @@ export function LessonPractice({
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="mx-auto max-w-xl rounded-[2rem] border border-line bg-surface p-8 text-center shadow-lift"
+        className="mx-auto max-w-xl rounded-[2rem] border-2 border-white bg-surface dark:border-white/5 p-8 text-center shadow-lift"
       >
-        <div className="text-6xl" aria-hidden>{passed ? "🏅" : "💪"}</div>
+        <ClayIcon
+          icon={passed ? Award : Dumbbell}
+          tile={passed ? "from-yellow-300 to-amber-500" : "from-sky-400 to-brand-600"}
+          size="lg"
+          className="mx-auto"
+        />
         <h2 className="mt-4 text-2xl font-extrabold text-ink">
           {t("resultTitle", { correct, total: questions.length })}
         </h2>
@@ -147,7 +153,7 @@ export function LessonPractice({
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
-          className="mt-5 rounded-3xl border border-line bg-surface p-6 shadow-soft"
+          className="mt-5 rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 p-6 shadow-soft"
         >
           {q.word.emoji && !q.word.letter && <div className="text-center text-6xl" aria-hidden>{q.word.emoji}</div>}
           {q.word.swatch && (

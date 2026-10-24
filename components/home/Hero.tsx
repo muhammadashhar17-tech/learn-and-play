@@ -10,7 +10,7 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
-import { ArrowRight, BookOpen, Brain, CheckCircle2, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, Brain, CheckCircle2, MessageCircle, Palette, Pencil, Ruler, Sparkles, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { ButtonLink } from "@/components/ui/Button";
 import { Aurora } from "@/components/ui/Aurora";
@@ -166,16 +166,18 @@ function Parallax({
 
 function FloatingDoodles({ x, y }: { x: MotionValue<number>; y: MotionValue<number> }) {
   const doodles = [
-    { e: "✏️", c: "start-[3%] bottom-[6%] text-3xl hidden sm:block", d: -30, dur: 7 },
-    { e: "⭐", c: "start-[44%] top-[8%] text-2xl", d: 22, dur: 5 },
-    { e: "📐", c: "start-[40%] bottom-[10%] text-3xl hidden lg:block", d: -18, dur: 8 },
-    { e: "🎨", c: "end-[4%] bottom-[8%] text-3xl hidden md:block", d: 26, dur: 6.5 },
+    { icon: Pencil, c: "start-[3%] bottom-[6%] hidden sm:block", tile: "from-amber-300 to-orange-400", d: -30, dur: 7 },
+    { icon: Star, c: "start-[44%] top-[8%]", tile: "from-yellow-300 to-amber-400", d: 22, dur: 5 },
+    { icon: Ruler, c: "start-[40%] bottom-[10%] hidden lg:block", tile: "from-sky-300 to-brand-500", d: -18, dur: 8 },
+    { icon: Palette, c: "end-[4%] bottom-[8%] hidden md:block", tile: "from-pink-300 to-rose-500", d: 26, dur: 6.5 },
   ];
   return (
     <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
-      {doodles.map((d) => (
-        <Parallax key={d.e} x={x} y={y} depth={d.d} float={14} duration={d.dur} className={`absolute opacity-70 ${d.c}`}>
-          {d.e}
+      {doodles.map((d, i) => (
+        <Parallax key={i} x={x} y={y} depth={d.d} float={14} duration={d.dur} className={`absolute opacity-80 ${d.c}`}>
+          <span className={`clay-tile grid size-11 rotate-[-8deg] place-items-center rounded-2xl bg-gradient-to-br text-white ${d.tile}`}>
+            <d.icon className="size-5" strokeWidth={2.5} />
+          </span>
         </Parallax>
       ))}
     </div>
@@ -195,7 +197,7 @@ function HeroIllustration({ x, y }: { x: MotionValue<number>; y: MotionValue<num
           initial={{ opacity: 0, scale: 0.85, rotate: -8 }}
           animate={{ opacity: 1, scale: 1, rotate: -3 }}
           transition={{ delay: 0.3, type: "spring", stiffness: 120, damping: 14 }}
-          className="rounded-3xl border border-white/60 bg-surface/90 p-5 shadow-lift backdrop-blur-md dark:border-white/10"
+          className="rounded-[1.75rem] border-2 border-white bg-surface/95 p-5 shadow-lift backdrop-blur-md dark:border-white/10"
         >
           <div className="flex items-center justify-between">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-100 px-3 py-1 text-xs font-bold text-brand-700 dark:bg-brand-900 dark:text-brand-200">
@@ -268,7 +270,8 @@ function HeroIllustration({ x, y }: { x: MotionValue<number>; y: MotionValue<num
           transition={{ delay: 1.2, type: "spring", stiffness: 300, damping: 12 }}
           className="block rounded-full bg-gradient-to-r from-amber-300 to-amber-400 px-3 py-1.5 text-sm font-extrabold text-amber-950 shadow-lift"
         >
-          ⭐ {t("cardPoints")}
+          <Star className="me-1 inline size-4 fill-current align-[-2px]" aria-hidden />
+          {t("cardPoints")}
         </motion.span>
       </Parallax>
     </div>

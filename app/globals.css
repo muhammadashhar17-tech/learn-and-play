@@ -16,12 +16,15 @@
   --color-brand-900: #1a3866;
   --color-brand-950: #102341;
 
-  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-dmsans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-nunito), var(--font-dmsans), ui-sans-serif, sans-serif;
   --font-urdu: var(--font-nastaliq), "Noto Nastaliq Urdu", serif;
   --font-sindhi: var(--font-naskh), "Noto Naskh Arabic", serif;
 
-  --shadow-soft: 0 12px 32px -14px rgb(31 95 191 / 0.28);
-  --shadow-lift: 0 22px 48px -18px rgb(31 95 191 / 0.4);
+  /* Claymorphism: a soft outer shadow plus a light top edge and a gentle bottom
+     "thickness", so cards and tiles look like soft 3D clay (set per theme below). */
+  --shadow-soft: var(--clay-sm);
+  --shadow-lift: var(--clay-lg);
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-shake: shake 0.45s ease-in-out;
@@ -76,6 +79,10 @@
   --text: #0f1f3d;
   --muted: #475875;
   --border: #d6e2f3;
+  --clay-sm: inset 0 2px 0 rgb(255 255 255 / 0.9), inset 0 -4px 0 rgb(31 95 191 / 0.06),
+    0 14px 32px -16px rgb(31 95 191 / 0.32), 0 3px 8px -3px rgb(31 95 191 / 0.1);
+  --clay-lg: inset 0 2px 0 rgb(255 255 255 / 0.85), inset 0 -5px 0 rgb(31 95 191 / 0.08),
+    0 28px 56px -22px rgb(31 95 191 / 0.45), 0 6px 14px -6px rgb(31 95 191 / 0.16);
   color-scheme: light;
 }
 
@@ -86,6 +93,10 @@
   --text: #e8eefb;
   --muted: #a3b3cd;
   --border: #22354f;
+  --clay-sm: inset 0 1px 0 rgb(255 255 255 / 0.07), inset 0 -4px 0 rgb(0 0 0 / 0.28),
+    0 14px 32px -16px rgb(0 0 0 / 0.65);
+  --clay-lg: inset 0 1px 0 rgb(255 255 255 / 0.08), inset 0 -5px 0 rgb(0 0 0 / 0.3),
+    0 28px 56px -22px rgb(0 0 0 / 0.75);
   color-scheme: dark;
 }
 
@@ -152,11 +163,45 @@ html[lang="sd"] *,
   font-family: var(--font-sindhi);
   line-height: 1.8;
 }
+/* Latin text inside any page (numbers, Roman pronunciation, e-mail): rounded Nunito. */
 .font-latin {
-  font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-nunito), var(--font-dmsans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* English headings use the rounded display face. */
+html[lang="en"] :is(h1, h2, h3, h4) {
+  font-family: var(--font-nunito), var(--font-dmsans), ui-sans-serif, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 /* ---------- Reusable bits ---------- */
+
+/* Tailwind v4 no longer gives buttons a pointer cursor; every clickable thing should have one. */
+a[href],
+button:not(:disabled),
+[role="button"],
+[role="radio"],
+select,
+summary,
+label[for] {
+  cursor: pointer;
+}
+
+/* Pressable clay button: a darker "lip" underneath that squashes when pressed. */
+.btn-clay {
+  box-shadow: inset 0 2px 0 rgb(255 255 255 / 0.28), inset 0 -4px 0 rgb(0 0 0 / 0.22),
+    0 12px 24px -10px rgb(31 95 191 / 0.6);
+}
+.btn-clay:active {
+  box-shadow: inset 0 2px 0 rgb(255 255 255 / 0.2), inset 0 -1px 0 rgb(0 0 0 / 0.22),
+    0 4px 10px -6px rgb(31 95 191 / 0.6);
+}
+
+/* Glossy 3D icon tile (gradient set with Tailwind classes). */
+.clay-tile {
+  box-shadow: inset 0 2px 0 rgb(255 255 255 / 0.45), inset 0 -4px 0 rgb(0 0 0 / 0.16),
+    0 10px 18px -8px rgb(15 31 61 / 0.35);
+}
 
 .skeleton {
   background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface) 50%, var(--surface-2) 75%);

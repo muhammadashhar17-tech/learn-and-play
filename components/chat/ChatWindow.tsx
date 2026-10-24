@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, RotateCcw, SendHorizontal, ShieldCheck } from "lucide-react";
+import { ArrowRight, Bot, RotateCcw, SendHorizontal, ShieldCheck, UserRound } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/i18n/routing";
 import { getChatEngine, type ChatMessage } from "@/lib/chat";
@@ -82,7 +82,7 @@ export function ChatWindow() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
-      <div className="flex h-[min(72dvh,46rem)] min-h-[30rem] flex-col overflow-hidden rounded-[2rem] border border-line bg-surface shadow-lift">
+      <div className="flex h-[min(72dvh,46rem)] min-h-[30rem] flex-col overflow-hidden rounded-[2rem] border-2 border-white bg-surface dark:border-white/5 shadow-lift">
         {/* Header */}
         <div className="flex items-center justify-between gap-3 border-b border-line bg-gradient-to-r from-brand-600 to-brand-700 px-5 py-3.5 text-white">
           <div className="flex items-center gap-3">
@@ -232,18 +232,20 @@ export function ChatWindow() {
 function BotAvatar({ large = false }: { large?: boolean }) {
   return (
     <span
-      className={`grid shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-amber-300 to-amber-500 shadow-sm ${large ? "size-11 text-2xl" : "size-8 text-lg"}`}
+      className={`clay-tile grid shrink-0 place-items-center bg-gradient-to-br from-amber-300 to-orange-500 text-white ${
+        large ? "size-11 rounded-2xl" : "size-8 rounded-xl"
+      }`}
       aria-hidden
     >
-      🤖
+      <Bot className={large ? "size-6" : "size-[18px]"} strokeWidth={2.25} />
     </span>
   );
 }
 
 function UserAvatar() {
   return (
-    <span className="grid size-8 shrink-0 place-items-center rounded-2xl bg-brand-100 text-lg dark:bg-brand-900" aria-hidden>
-      🧒
+    <span className="clay-tile grid size-8 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-pink-400 to-rose-600 text-white" aria-hidden>
+      <UserRound className="size-[18px]" strokeWidth={2.25} />
     </span>
   );
 }

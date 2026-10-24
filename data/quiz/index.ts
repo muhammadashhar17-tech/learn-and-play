@@ -8,11 +8,11 @@ import type { Category, CategoryId, Difficulty } from "./types";
 export * from "./types";
 
 export const CATEGORIES: Category[] = [
-  { id: "gk", emoji: "🌍", gradient: "from-sky-500 to-brand-600", questions: GK_QUESTIONS },
-  { id: "science", emoji: "🔬", gradient: "from-emerald-500 to-teal-600", questions: SCIENCE_QUESTIONS },
-  { id: "math", emoji: "➗", gradient: "from-violet-500 to-indigo-600", questions: MATH_QUESTIONS },
-  { id: "history", emoji: "🏛️", gradient: "from-amber-500 to-orange-600", questions: HISTORY_QUESTIONS },
-  { id: "language", emoji: "🔤", gradient: "from-rose-500 to-pink-600", questions: LANGUAGE_QUESTIONS },
+  { id: "gk", questions: GK_QUESTIONS },
+  { id: "science", questions: SCIENCE_QUESTIONS },
+  { id: "math", questions: MATH_QUESTIONS },
+  { id: "history", questions: HISTORY_QUESTIONS },
+  { id: "language", questions: LANGUAGE_QUESTIONS },
 ];
 
 export const CATEGORY_IDS = CATEGORIES.map((c) => c.id);

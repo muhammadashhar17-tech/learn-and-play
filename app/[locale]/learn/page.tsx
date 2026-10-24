@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { BookOpen } from "lucide-react";
 import { initLocale } from "@/lib/locale";
 import { pageMetadata } from "@/lib/seo";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -18,7 +19,7 @@ function LearnContent() {
   const t = useTranslations("Learn");
   return (
     <>
-      <PageHeader emoji="📚" title={t("title")} subtitle={t("subtitle")} />
+      <PageHeader icon={BookOpen} tile="from-emerald-400 to-teal-600" title={t("title")} subtitle={t("subtitle")} />
       <LessonList />
     </>
   );

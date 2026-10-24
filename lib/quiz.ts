@@ -3,11 +3,12 @@ import { pick } from "@/data/types";
 
 export const QUESTIONS_PER_ROUND = 10;
 
-// Generous times: the app is for Class 5, and Urdu/Sindhi take longer to read.
-export const DIFFICULTY_SETTINGS: Record<Difficulty, { seconds: number; multiplier: number; emoji: string }> = {
-  easy: { seconds: 30, multiplier: 1, emoji: "🌱" },
-  medium: { seconds: 25, multiplier: 1.5, emoji: "🔥" },
-  hard: { seconds: 20, multiplier: 2, emoji: "🚀" },
+// Each level matches primary classes: Easy = Class 1–2, Medium = Class 3–4, Hard = Class 5.
+// Young readers get generous time (Urdu/Sindhi also take longer to read).
+export const DIFFICULTY_SETTINGS: Record<Difficulty, { seconds: number; multiplier: number }> = {
+  easy: { seconds: 40, multiplier: 1 },
+  medium: { seconds: 30, multiplier: 1.5 },
+  hard: { seconds: 20, multiplier: 2 },
 };
 
 /** Questions closest to the chosen level come first when a round needs filling. */

@@ -1,9 +1,18 @@
-import { Noto_Naskh_Arabic, Noto_Nastaliq_Urdu, Poppins } from "next/font/google";
+import { DM_Sans, Noto_Naskh_Arabic, Noto_Nastaliq_Urdu, Nunito } from "next/font/google";
 
-export const poppins = Poppins({
+// English: DM Sans for reading, Nunito (rounded, friendly) for headings and numbers —
+// the "claymorphism / children's education" pairing from the UI/UX Pro Max skill.
+export const dmSans = DM_Sans({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dmsans",
+  display: "swap",
+});
+
+export const nunito = Nunito({
+  subsets: ["latin", "latin-ext"],
+  weight: ["600", "700", "800", "900"],
+  variable: "--font-nunito",
   display: "swap",
 });
 
@@ -27,4 +36,4 @@ export const naskh = Noto_Naskh_Arabic({
   preload: false,
 });
 
-export const fontVariables = `${poppins.variable} ${nastaliq.variable} ${naskh.variable}`;
+export const fontVariables = `${dmSans.variable} ${nunito.variable} ${nastaliq.variable} ${naskh.variable}`;

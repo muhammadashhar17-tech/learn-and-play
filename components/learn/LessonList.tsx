@@ -3,12 +3,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { LESSONS } from "@/data/lessons";
+import { LESSONS, type LessonId } from "@/data/lessons";
 import { Link } from "@/i18n/navigation";
 import { progressStore } from "@/lib/progress";
 import { useHydrated, useStore } from "@/lib/storage";
 import { Skeleton } from "@/components/ui/States";
 import { TiltCard } from "@/components/ui/TiltCard";
+import { LESSON_ICONS } from "@/lib/icons";
 
 export function LessonList() {
   const t = useTranslations("Learn");
@@ -18,7 +19,7 @@ export function LessonList() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-      <div className="mb-8 rounded-3xl border border-line bg-surface p-5 shadow-soft">
+      <div className="mb-8 rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 p-5 shadow-soft">
         {hydrated ? (
           <>
             <p className="font-semibold text-ink">{t("overview", { done, total: LESSONS.length })}</p>
@@ -56,22 +57,19 @@ export function LessonList() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
             >
-              <TiltCard className="rounded-3xl">
+              <TiltCard className="rounded-[1.75rem]">
               <Link
                 href={`/learn/${lesson.id}`}
-                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface shadow-soft transition duration-300 hover:-translate-y-1.5 hover:shadow-lift"
+                className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border-2 border-white bg-surface shadow-soft transition duration-300 hover:-translate-y-1.5 hover:shadow-lift dark:border-white/5"
               >
-                <div className={`relative grid h-32 place-items-center bg-gradient-to-br ${lesson.gradient}`}>
-                  <span className="text-6xl drop-shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" aria-hidden>
-                    {lesson.emoji}
-                  </span>
+                <LessonBanner id={lesson.id}>
                   {record && (
                     <span className="absolute end-3 top-3 flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-1 text-xs font-bold text-emerald-700">
                       <CheckCircle2 className="size-4" aria-hidden />
                       {t("completed")}
                     </span>
                   )}
-                </div>
+                </LessonBanner>
                 <div className="flex flex-1 flex-col p-5">
                   <h2 className="text-lg font-bold text-ink">{t(`lessons.${lesson.id}.title`)}</h2>
                   <p className="mt-1 flex-1 text-sm text-muted">{t(`lessons.${lesson.id}.text`)}</p>
@@ -91,6 +89,23 @@ export function LessonList() {
           );
         })}
       </ul>
+    </div>
+  );
+}
+
+/** Coloured top of a lesson card: the lesson's icon on a glossy gradient. */
+function LessonBanner({ id, children }: { id: LessonId; children?: React.ReactNode }) {
+  const { icon: Icon, tile } = LESSON_ICONS[id];
+  return (
+    <div className={`clay-tile relative grid h-32 place-items-center overflow-hidden bg-gradient-to-br ${tile}`}>
+      <Icon className="absolute -end-4 -top-4 size-28 text-white/15" aria-hidden />
+      <span
+        className="grid size-16 place-items-center rounded-2xl bg-white/20 ring-1 ring-white/40 backdrop-blur-sm transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110"
+        aria-hidden
+      >
+        <Icon className="size-9 text-white drop-shadow" strokeWidth={2.25} />
+      </span>
+      {children}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { BarChart3 } from "lucide-react";
 import { initLocale } from "@/lib/locale";
 import { pageMetadata } from "@/lib/seo";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -18,7 +19,7 @@ function ProgressContent() {
   const t = useTranslations("Progress");
   return (
     <>
-      <PageHeader emoji="📊" title={t("title")} subtitle={t("subtitle")} />
+      <PageHeader icon={BarChart3} tile="from-violet-400 to-indigo-600" title={t("title")} subtitle={t("subtitle")} />
       <ProgressDashboard />
     </>
   );

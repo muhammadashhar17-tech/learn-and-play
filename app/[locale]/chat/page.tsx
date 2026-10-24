@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Bot } from "lucide-react";
 import { initLocale } from "@/lib/locale";
 import { pageMetadata } from "@/lib/seo";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -18,7 +19,7 @@ function ChatContent() {
   const t = useTranslations("Chat");
   return (
     <>
-      <PageHeader width="max-w-3xl" emoji="🤖" title={t("title")} subtitle={t("subtitle")} />
+      <PageHeader width="max-w-3xl" icon={Bot} tile="from-amber-300 to-orange-500" title={t("title")} subtitle={t("subtitle")} />
       <ChatWindow />
     </>
   );

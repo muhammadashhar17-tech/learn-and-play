@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { LESSON_ICONS } from "@/lib/icons";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
@@ -30,14 +31,14 @@ export default async function LessonPage({ params }: PageProps<"/[locale]/learn/
   const { lesson } = await params;
   const data = getLesson(lesson);
   if (!data) notFound();
-  return <LessonContent id={data.id} emoji={data.emoji} />;
+  return <LessonContent id={data.id} />;
 }
 
-function LessonContent({ id, emoji }: { id: LessonId; emoji: string }) {
+function LessonContent({ id }: { id: LessonId }) {
   const t = useTranslations("Learn");
   return (
     <>
-      <PageHeader width="max-w-3xl" emoji={emoji} title={t(`lessons.${id}.title`)} subtitle={t(`lessons.${id}.text`)}>
+      <PageHeader width="max-w-3xl" icon={LESSON_ICONS[id].icon} tile={LESSON_ICONS[id].tile} title={t(`lessons.${id}.title`)} subtitle={t(`lessons.${id}.text`)}>
         <Link
           href="/learn"
           className="mt-4 inline-flex items-center gap-1.5 rounded-xl px-2 py-1 text-sm font-semibold text-brand-700 hover:bg-brand-100 dark:text-brand-200 dark:hover:bg-brand-900/50"

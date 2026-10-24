@@ -29,7 +29,5 @@ export interface Word {
 
 export interface Lesson {
   id: LessonId;
-  emoji: string;
-  gradient: string;
   words: Word[];
 }

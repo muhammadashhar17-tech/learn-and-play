@@ -38,7 +38,7 @@ function AboutContent() {
   const t = useTranslations("About");
   return (
     <>
-      <PageHeader width="max-w-6xl" emoji="💙" title={t("title")} subtitle={t("subtitle")} />
+      <PageHeader width="max-w-6xl" icon={Heart} tile="from-pink-400 to-rose-600" title={t("title")} subtitle={t("subtitle")} />
       <div className="mx-auto max-w-6xl space-y-8 px-4 py-10 sm:px-6">
         <Reveal>
           <section className="grid gap-6 rounded-[2rem] bg-gradient-to-br from-brand-600 to-brand-800 p-8 text-white shadow-lift md:grid-cols-[auto_1fr] md:items-center">
@@ -63,7 +63,7 @@ function AboutContent() {
         </div>
 
         <Reveal>
-          <section className="rounded-3xl border border-line bg-surface p-6 shadow-soft sm:p-8">
+          <section className="rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 p-6 shadow-soft sm:p-8">
             <h2 className="text-xl font-bold text-ink">{t("featuresTitle")}</h2>
             <ul className="mt-5 grid gap-4 sm:grid-cols-2">
               {FEATURES.map(({ key, icon: Icon }) => (
@@ -100,7 +100,7 @@ function AboutContent() {
 
 function InfoCard({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
   return (
-    <section className="h-full rounded-3xl border border-line bg-surface p-6 shadow-soft">
+    <section className="h-full rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 p-6 shadow-soft">
       <span className="grid size-12 place-items-center rounded-2xl bg-brand-50 text-brand-600 dark:bg-brand-900/50 dark:text-brand-300">
         {icon}
       </span>

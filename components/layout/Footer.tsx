@@ -38,6 +38,7 @@ export function Footer() {
               {nav(i.key)}
             </FooterLink>
           ))}
+          <FooterLink href="/contact#faq">{t("faq")}</FooterLink>
         </FooterColumn>
       </div>
 

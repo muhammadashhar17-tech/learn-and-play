@@ -27,8 +27,8 @@ export const MATH_QUESTIONS: Question[] = [
   {
     id: "math-4",
     difficulty: "easy",
-    q: { en: "What is 20 ÷ 4?", ur: "\u206620 ÷ 4\u2069 کتنے ہوتے ہیں؟", sd: "\u206620 ÷ 4\u2069 ڪيترا ٿين ٿا؟" },
-    options: ["4", "5", "6", "8"],
+    q: { en: "How many sides does a triangle have?", ur: "تکون کے کتنے ضلع ہوتے ہیں؟", sd: "ٽڪنڊي جا ڪيترا پاسا ٿين ٿا؟" },
+    options: ["2", "3", "4", "5"],
     answer: 1,
   },
   {
@@ -70,9 +70,9 @@ export const MATH_QUESTIONS: Question[] = [
   {
     id: "math-10",
     difficulty: "medium",
-    q: { en: "What is 25% of 200?", ur: "200 کا 25٪ کتنا ہے؟", sd: "200 جو 25٪ ڪيترو آهي؟" },
-    options: ["25", "40", "50", "75"],
-    answer: 2,
+    q: { en: "What is 1000 − 250?", ur: "\u20661000 − 250\u2069 کتنے ہوتے ہیں؟", sd: "\u20661000 − 250\u2069 ڪيترا ٿين ٿا؟" },
+    options: ["650", "750", "850", "1250"],
+    answer: 1,
   },
   // ---------- Hard ----------
   {

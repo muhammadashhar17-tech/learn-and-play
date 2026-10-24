@@ -27,8 +27,8 @@ files have the same keys and warns if Urdu-only letters (ی ہ ے) slip into Sin
 
 - **School name:** `About.schoolName` is "Govt Girls School" / "گورنمنٹ گرلز اسکول" /
   "گورنمينٽ گرلز اسڪول". Check the Urdu and Sindhi spelling, or use the school's full official name.
-- **Contact e-mail:** `contactEmail` in `data/site.ts` is a placeholder
-  (`contact@yourschool.edu.pk`).
+- **Contact:** Sana / sanaqureshi1947@gmail.com. Check the spelling of the name in Urdu
+  (`ثناء`) and Sindhi (`ثنا`) — `Contact.personName`.
 - **Testimonials** in `data/testimonials.ts` are sample quotes. Replace them with
   real ones, or remove them.
 
@@ -95,8 +95,12 @@ files have the same keys and warns if Urdu-only letters (ی ہ ے) slip into Sin
 ## Urdu — items to double-check
 
 - `نارنجی` for the colour orange, `مالٹا` for the fruit
-- `بحرِ منجمد شمالی` (Arctic Ocean) in a quiz answer: too difficult for Class 5?
-- "Class 5" is written `جماعت پنجم` (Urdu) and `پنجين ڪلاس` (Sindhi): match what the school uses?
+- `بحرِ منجمد شمالی` (Arctic Ocean) in a quiz answer: too difficult for primary students?
+- Classes are written `جماعت 1 تا 5` / `جماعت 1–2` (Urdu) and `ڪلاس 1 کان 5` / `ڪلاس 1–2` (Sindhi):
+  do these match what the school uses?
+- New FAQ (`Faq.*` keys) and "A level for every class" section (`Home.levels.*`): please read
+  them once in Urdu and Sindhi. The FAQ says the app is for the school's *girls*
+  (`طالبات` / `شاگردياڻين`).
 - Badge names: `باتونی`, `کتابی کیڑا`, `کھوجی`, `مشکل کا ہیرو`
 - `سلام دعا` as the title of the Greetings lesson
 - Chatbot greeting `وعلیکم السلام` is used as a reply to any "hello"

@@ -71,7 +71,7 @@ export function Testimonials() {
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.3}
               onDragEnd={onDragEnd}
-              className="cursor-grab rounded-3xl border border-line bg-surface p-7 shadow-soft active:cursor-grabbing sm:p-9"
+              className="cursor-grab rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 p-7 shadow-soft active:cursor-grabbing sm:p-9"
               aria-roledescription="slide"
               aria-label={`${index + 1} / ${count}`}
             >
@@ -80,8 +80,13 @@ export function Testimonials() {
                 {pick(item.quote, locale)}
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-3">
-                <span className="grid size-12 place-items-center rounded-2xl bg-brand-50 text-2xl dark:bg-brand-900/50" aria-hidden>
-                  {item.emoji}
+                <span
+                  className={`clay-tile grid size-12 place-items-center rounded-2xl bg-gradient-to-br text-xl font-black text-white ${
+                    item.role === "student" ? "from-pink-400 to-rose-600" : item.role === "teacher" ? "from-brand-400 to-brand-700" : "from-amber-400 to-orange-600"
+                  }`}
+                  aria-hidden
+                >
+                  {pick(item.name, locale).replace(/^(Ms\.|Mr\.)\s*/, "").charAt(0)}
                 </span>
                 <span>
                   <span className="block font-bold text-ink">{pick(item.name, locale)}</span>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Brain, Home } from "lucide-react";
+import { BookOpen, Brain, Home, Sparkles } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { withBase } from "@/lib/base-path";
 
@@ -28,7 +28,7 @@ export function NotFoundView() {
           animate={{ rotate: [0, 14, -8, 0], y: [0, -6, 0] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
         >
-          🎈
+          <Sparkles className="size-12 text-amber-400" />
         </motion.span>
       </motion.div>
       <h1 className="mt-6 text-2xl font-extrabold text-ink sm:text-3xl">{t("title")}</h1>
@@ -36,21 +36,21 @@ export function NotFoundView() {
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <a
           href={href("")}
-          className="inline-flex items-center gap-2 rounded-2xl bg-brand-600 px-5 py-3 font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-brand-700 active:scale-95"
+          className="inline-flex items-center gap-2 btn-clay rounded-2xl bg-gradient-to-b from-brand-500 to-brand-700 px-5 py-3 font-bold text-white transition hover:-translate-y-0.5 active:translate-y-0.5"
         >
           <Home className="size-5" aria-hidden />
           {t("home")}
         </a>
         <a
           href={href("/quiz")}
-          className="inline-flex items-center gap-2 rounded-2xl border border-line bg-surface px-5 py-3 font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-300 active:scale-95"
+          className="inline-flex items-center gap-2 rounded-2xl border-2 border-white bg-surface px-5 py-3 font-bold text-ink shadow-soft transition hover:-translate-y-0.5 active:translate-y-0.5 dark:border-white/5"
         >
           <Brain className="size-5" aria-hidden />
           {t("quiz")}
         </a>
         <a
           href={href("/learn")}
-          className="inline-flex items-center gap-2 rounded-2xl border border-line bg-surface px-5 py-3 font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-300 active:scale-95"
+          className="inline-flex items-center gap-2 rounded-2xl border-2 border-white bg-surface px-5 py-3 font-bold text-ink shadow-soft transition hover:-translate-y-0.5 active:translate-y-0.5 dark:border-white/5"
         >
           <BookOpen className="size-5" aria-hidden />
           {t("learn")}

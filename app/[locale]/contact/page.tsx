@@ -1,10 +1,11 @@
 import { useTranslations } from "next-intl";
-import { Clock, Info, Mail, School } from "lucide-react";
+import { Clock, Info, Mail, School, UserRound } from "lucide-react";
 import { initLocale } from "@/lib/locale";
 import { pageMetadata } from "@/lib/seo";
 import { site } from "@/data/site";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { Faq } from "@/components/contact/Faq";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/contact">) {
   const { locale } = await params;
@@ -21,13 +22,16 @@ function ContactContent() {
   const about = useTranslations("About");
   return (
     <>
-      <PageHeader width="max-w-6xl" emoji="✉️" title={t("title")} subtitle={t("subtitle")} />
+      <PageHeader width="max-w-6xl" icon={Mail} tile="from-sky-400 to-brand-600" title={t("title")} subtitle={t("subtitle")} />
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.6fr_1fr]">
         <ContactForm />
         <aside className="space-y-5">
-          <section className="rounded-3xl border border-line bg-surface p-6 shadow-soft">
+          <section className="rounded-[1.75rem] border-2 border-white bg-surface p-6 shadow-soft dark:border-white/5">
             <h2 className="text-lg font-bold text-ink">{t("infoTitle")}</h2>
             <ul className="mt-4 space-y-4 text-sm">
+              <InfoRow icon={<UserRound className="size-5" aria-hidden />} title={t("infoPerson")}>
+                <span className="font-semibold text-ink">{t("personName")}</span>
+              </InfoRow>
               <InfoRow icon={<Mail className="size-5" aria-hidden />} title={t("infoEmail")}>
                 <a
                   href={`mailto:${site.contactEmail}`}
@@ -54,6 +58,7 @@ function ContactContent() {
           </section>
         </aside>
       </div>
+      <Faq />
     </>
   );
 }

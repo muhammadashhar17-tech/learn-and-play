@@ -17,8 +17,5 @@ export interface Question {
 
 export interface Category {
   id: CategoryId;
-  emoji: string;
-  /** Tailwind gradient classes for the category card. */
-  gradient: string;
   questions: Question[];
 }

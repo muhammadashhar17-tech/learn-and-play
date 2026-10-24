@@ -18,7 +18,6 @@ export type BadgeId =
 
 export interface Badge {
   id: BadgeId;
-  emoji: string;
   earned: (p: ProgressState) => boolean;
 }
 
@@ -27,18 +26,18 @@ const lessonsDone = (p: ProgressState) => Object.keys(p.lessons).length;
 
 /** Badges are worked out from saved progress, so they can never get out of sync. */
 export const BADGES: Badge[] = [
-  { id: "firstQuiz", emoji: "🎯", earned: (p) => p.quizzes.length >= 1 },
-  { id: "quizFan", emoji: "🎮", earned: (p) => p.quizzes.length >= 5 },
-  { id: "quizChampion", emoji: "🏆", earned: (p) => p.quizzes.length >= 20 },
-  { id: "perfect", emoji: "💯", earned: (p) => p.quizzes.some((q) => q.correct === q.total) },
-  { id: "superstar", emoji: "⭐", earned: (p) => p.quizzes.some((q) => q.stars === 3) },
-  { id: "hardHero", emoji: "🚀", earned: (p) => p.quizzes.some((q) => q.difficulty === "hard" && q.stars >= 2) },
-  { id: "explorer", emoji: "🧭", earned: (p) => CATEGORY_IDS.every((c) => p.quizzes.some((q) => q.category === c)) },
-  { id: "collector", emoji: "💎", earned: (p) => totalPoints(p) >= 500 },
-  { id: "wordLearner", emoji: "📗", earned: (p) => lessonsDone(p) >= 1 },
-  { id: "bookworm", emoji: "📚", earned: (p) => lessonsDone(p) >= 4 },
-  { id: "languageMaster", emoji: "🎓", earned: (p) => lessonsDone(p) >= LESSONS.length },
-  { id: "chatterbox", emoji: "💬", earned: (p) => p.chatMessages >= 5 },
+  { id: "firstQuiz", earned: (p) => p.quizzes.length >= 1 },
+  { id: "quizFan", earned: (p) => p.quizzes.length >= 5 },
+  { id: "quizChampion", earned: (p) => p.quizzes.length >= 20 },
+  { id: "perfect", earned: (p) => p.quizzes.some((q) => q.correct === q.total) },
+  { id: "superstar", earned: (p) => p.quizzes.some((q) => q.stars === 3) },
+  { id: "hardHero", earned: (p) => p.quizzes.some((q) => q.difficulty === "hard" && q.stars >= 2) },
+  { id: "explorer", earned: (p) => CATEGORY_IDS.every((c) => p.quizzes.some((q) => q.category === c)) },
+  { id: "collector", earned: (p) => totalPoints(p) >= 500 },
+  { id: "wordLearner", earned: (p) => lessonsDone(p) >= 1 },
+  { id: "bookworm", earned: (p) => lessonsDone(p) >= 4 },
+  { id: "languageMaster", earned: (p) => lessonsDone(p) >= LESSONS.length },
+  { id: "chatterbox", earned: (p) => p.chatMessages >= 5 },
 ];
 
 export function summarize(p: ProgressState) {

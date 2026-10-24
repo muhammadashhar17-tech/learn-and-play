@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { RefreshCw } from "lucide-react";
+import { RefreshCw, Star } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import type { Word } from "@/data/lessons";
 import { isRtl, type Locale } from "@/i18n/routing";
@@ -40,7 +40,7 @@ export function Flashcard({
           onClick={onFlip}
           inert={flipped}
           aria-label={`${t("flip")}: ${word.letter ? word.letter.name : word[locale]}`}
-          className="absolute inset-0 flex cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden rounded-[2rem] border border-line bg-surface p-6 shadow-lift backface-hidden"
+          className="absolute inset-0 flex cursor-pointer flex-col items-center justify-center gap-3 overflow-hidden rounded-[2rem] border-2 border-white bg-surface dark:border-white/5 p-6 shadow-lift backface-hidden"
         >
           <span className="bg-dots absolute inset-0 opacity-60 [mask-image:radial-gradient(circle,black,transparent_75%)]" aria-hidden />
           <FrontVisual word={word} locale={locale} />
@@ -95,7 +95,8 @@ function FrontVisual({ word, locale }: { word: Word; locale: Locale }) {
         <span className="relative flex flex-wrap justify-center gap-2 text-sm font-semibold">
           {word.letter.sindhiOnly && (
             <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-900 dark:bg-amber-900/40 dark:text-amber-100">
-              ⭐ {t("sindhiOnly")}
+              <Star className="me-1 inline size-3.5 fill-current align-[-2px]" aria-hidden />
+              {t("sindhiOnly")}
             </span>
           )}
           <span className="rounded-full bg-surface-2 px-3 py-1 text-muted">

@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Brain } from "lucide-react";
 import { initLocale } from "@/lib/locale";
 import { pageMetadata } from "@/lib/seo";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -18,7 +19,7 @@ function QuizContent() {
   const t = useTranslations("Quiz");
   return (
     <>
-      <PageHeader emoji="🧠" title={t("title")} subtitle={t("subtitle")} />
+      <PageHeader icon={Brain} tile="from-brand-400 to-brand-700" title={t("title")} subtitle={t("subtitle")} />
       <QuizGame />
     </>
   );

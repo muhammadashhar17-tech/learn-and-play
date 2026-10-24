@@ -2,15 +2,17 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Check, Flag, X } from "lucide-react";
+import { ArrowRight, Check, Flag, Star, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { getCategory, type CategoryId, type Difficulty } from "@/data/quiz";
+import type { CategoryId, Difficulty } from "@/data/quiz";
 import { pick } from "@/data/types";
 import { DIFFICULTY_SETTINGS, optionText, type RoundQuestion } from "@/lib/quiz";
 import { Button } from "@/components/ui/Button";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { burstFrom } from "@/lib/confetti";
 import { MuteToggle } from "@/components/ui/MuteToggle";
+import { ClayIcon } from "@/components/ui/ClayIcon";
+import { CATEGORY_ICONS } from "@/lib/icons";
 import { TimerRing } from "./TimerRing";
 import type { AnswerRecord } from "./QuizGame";
 
@@ -49,7 +51,6 @@ export function QuizPlay({
   const [confirmQuit, setConfirmQuit] = useState(false);
   const nextRef = useRef<HTMLButtonElement>(null);
   const optionRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const cat = getCategory(category);
 
   // Picking the right answer sends a little sparkle burst out of that button.
   const choose = useCallback(
@@ -91,13 +92,11 @@ export function QuizPlay({
       {/* Top bar */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <span className={`grid size-10 place-items-center rounded-xl bg-gradient-to-br ${cat.gradient} text-xl`} aria-hidden>
-            {cat.emoji}
-          </span>
+          <ClayIcon icon={CATEGORY_ICONS[category].icon} tile={CATEGORY_ICONS[category].tile} size="sm" />
           <div className="leading-tight">
             <p className="text-sm font-bold text-ink">{t(`categories.${category}.name`)}</p>
-            <p className="text-xs text-muted">
-              {DIFFICULTY_SETTINGS[difficulty].emoji} {t(`difficulty.${difficulty}`)}
+            <p className="text-xs font-semibold text-muted">
+              {t(`difficulty.${difficulty}`)} · {t(`difficulty.classes.${difficulty}`)}
             </p>
           </div>
         </div>
@@ -110,7 +109,8 @@ export function QuizPlay({
             className="rounded-xl bg-gradient-to-r from-amber-100 to-amber-200 px-3 py-2 text-sm font-bold text-amber-900 shadow-sm dark:from-amber-900/50 dark:to-amber-800/40 dark:text-amber-100"
             aria-live="polite"
           >
-            ⭐ {t("play.points", { points: score })}
+            <Star className="me-1 inline size-4 fill-amber-500 text-amber-500 align-[-3px]" aria-hidden />
+            {t("play.points", { points: score })}
           </motion.span>
           <MuteToggle />
           <button
@@ -153,7 +153,7 @@ export function QuizPlay({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -16 }}
           transition={{ duration: 0.3 }}
-          className="mt-6 rounded-3xl border border-line bg-surface p-5 shadow-soft sm:p-8"
+          className="mt-6 rounded-[1.75rem] border-2 border-white bg-surface p-5 shadow-lift sm:p-8 dark:border-white/5"
         >
           <div className="flex items-start gap-4">
             <TimerRing seconds={secondsLeft} total={DIFFICULTY_SETTINGS[difficulty].seconds} />
@@ -166,7 +166,7 @@ export function QuizPlay({
             {question.options.map((opt, i) => {
               const isAnswer = i === question.answer;
               const isPicked = answer?.picked === i;
-              let style = "border-line bg-surface hover:border-brand-400 hover:bg-brand-50 dark:hover:bg-brand-900/30";
+              let style = "border-white bg-surface shadow-soft hover:border-brand-300 hover:bg-brand-50 dark:border-white/5 dark:hover:bg-brand-900/30";
               if (revealed && isAnswer) style = "ring-pulse border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40";
               else if (revealed && isPicked) style = "animate-shake border-rose-500 bg-rose-50 dark:bg-rose-950/40";
               else if (revealed) style = "border-line bg-surface opacity-50";
@@ -185,7 +185,7 @@ export function QuizPlay({
                   animate={{ opacity: 1, y: 0, scale: revealed && isAnswer ? [1, 1.05, 1] : 1 }}
                   transition={{ duration: 0.35, delay: revealed ? 0 : 0.12 + i * 0.07 }}
                   aria-label={`${t("play.option", { number: i + 1 })}: ${optionText(opt, locale)}`}
-                  className={`flex min-h-16 items-center gap-3 rounded-2xl border-2 px-4 py-3 text-start text-lg font-semibold text-ink transition-colors disabled:cursor-default ${style}`}
+                  className={`flex min-h-16 items-center gap-3 rounded-[1.25rem] border-2 px-4 py-3 text-start text-lg font-semibold text-ink transition-colors disabled:cursor-default ${style}`}
                 >
                   <span
                     className={`font-latin grid size-9 shrink-0 place-items-center rounded-xl text-base font-bold ${
