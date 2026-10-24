@@ -1,0 +1,26 @@
+1:"$Sreact.fragment"
+2:"/learn-and-play/_next/static/chunks/42onvq6nokjl2.js"
+3:I[39756,["$2"],"default"]
+4:I[37457,["$2"],"default"]
+5:"/learn-and-play/_next/static/chunks/2x7bo0n-hb6r0.js"
+6:"/learn-and-play/_next/static/chunks/37nw16xoxg9-c.js"
+7:"/learn-and-play/_next/static/chunks/32ct9tnz--5eq.js"
+8:"/learn-and-play/_next/static/chunks/2tqo7gxr610u1.js"
+9:I[61526,["$2","$5","$6","$7","$8"],"GlobalNotFound"]
+d:I[97367,["$2"],"OutletBoundary"]
+e:"$Sreact.suspense"
+10:"ViewportBoundary"
+11:I[97367,["$2"],"$10"]
+13:"MetadataBoundary"
+14:I[97367,["$2"],"$13"]
+16:I[68027,["$2"],"default",1]
+:HL["/learn-and-play/_next/static/chunks/0cpulov-1e6wr.css","style"]
+:HL["/learn-and-play/_next/static/chunks/3u0su4qcef8oa.css","style"]
+b:X
+c:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":[["$","html",null,{"lang":"en","className":"MNIRhG_variable B7BvlW_variable Lq9Nma_variable bixv0G_variable","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('lp-theme')==='dark'||(!localStorage.getItem('lp-theme')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}"}}]}],["$","body",null,{"className":"min-h-dvh","children":["$","$L9",null,{}]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/learn-and-play/_next/static/chunks/0cpulov-1e6wr.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/learn-and-play/_next/static/chunks/3u0su4qcef8oa.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/learn-and-play/_next/static/chunks/2x7bo0n-hb6r0.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/learn-and-play/_next/static/chunks/37nw16xoxg9-c.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/learn-and-play/_next/static/chunks/32ct9tnz--5eq.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/learn-and-play/_next/static/chunks/2tqo7gxr610u1.js","async":true,"nonce":"$undefined"}]],["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],"p":false,"v":null}}]]
+a:[["children",{"s":"/_not-found","h":512,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":"$b"},"c":"$Qc"}]]
+0:{"P":null,"c":["","_not-found",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/learn-and-play/_next/static/chunks/42onvq6nokjl2.js","async":true,"nonce":"$undefined"}]],["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","html",null,{"lang":"en","className":"MNIRhG_variable B7BvlW_variable Lq9Nma_variable bixv0G_variable","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('lp-theme')==='dark'||(!localStorage.getItem('lp-theme')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}"}}]}],["$","body",null,{"className":"min-h-dvh","children":["$","$L9",null,{}]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/learn-and-play/_next/static/chunks/0cpulov-1e6wr.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/learn-and-play/_next/static/chunks/3u0su4qcef8oa.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":null},"c":"$Qa"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L11",null,{"children":"$L12"}],["$","$L14",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$e",null,{"name":"Next.Metadata","children":"$L15"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":false,"v":null}},"m":"$undefined","G":["$16",[]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"LyTD4ZAKPjFeMgcGUVEOV"}
+b:C
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:null
+15:[["$","title","0",{"children":"404 | Learn & Play"}],["$","meta","1",{"name":"robots","content":"noindex"}]]

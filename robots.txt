@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://muhammadashhar17-tech.github.io/learn-and-play/sitemap.xml
