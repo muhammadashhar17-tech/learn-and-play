@@ -149,6 +149,26 @@ is easier to remember, or connect your school's own domain.
 
 ---
 
+## 3b. Windows app (a file to send for laptops)
+
+The `desktop/` folder wraps the site in a small Windows app (Electron). The whole
+site is packed inside it, so it works **without internet**, and progress is saved
+on that laptop.
+
+```bash
+cd desktop
+npm install        # first time only
+npm run dist       # builds the site, then the .exe files into desktop/dist
+```
+
+- `Learn-and-Play-Setup.exe` installs it with a Desktop and Start menu icon.
+- `Learn-and-Play-Portable.exe` runs straight away, no install.
+
+The files are not code-signed, so Windows may show "Windows protected your PC":
+click **More info → Run anyway**. Run `npm run dist` again after changing the site.
+
+---
+
 ## 4. Tips for the school demo
 
 - Open the site **once while online**. It is then cached, so it keeps working if

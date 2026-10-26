@@ -1,0 +1,47 @@
+{
+  "name": "learn-and-play-desktop",
+  "productName": "Learn & Play",
+  "version": "1.0.0",
+  "description": "Learn & Play as a Windows app that works without internet.",
+  "author": "Muhammad Ashhar",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "site": "node build-site.mjs",
+    "start": "npm run site && electron .",
+    "dist": "npm run site && electron-builder --win portable nsis"
+  },
+  "devDependencies": {
+    "electron": "38.2.0",
+    "electron-builder": "26.0.12"
+  },
+  "build": {
+    "appId": "pk.edu.learnandplay",
+    "productName": "Learn & Play",
+    "files": [
+      "main.js",
+      "site/**/*"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "win": {
+      "icon": "build/icon.png"
+    },
+    "portable": {
+      "artifactName": "Learn-and-Play-Portable.exe"
+    },
+    "nsis": {
+      "artifactName": "Learn-and-Play-Setup.exe",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "Learn & Play"
+    }
+  },
+  "allowScripts": {
+    "electron@38.2.0": true,
+    "electron-winstaller@5.4.0": true
+  }
+}

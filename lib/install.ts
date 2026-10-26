@@ -47,11 +47,15 @@ export async function promptInstall() {
   return outcome === "accepted";
 }
 
-/** True when already running as the installed app (its own window, no address bar). */
+/**
+ * True when already running as the installed app (its own window, no address bar),
+ * including the Windows app in desktop/.
+ */
 export function isInstalledApp() {
   if (typeof window === "undefined") return false;
   return (
     window.matchMedia("(display-mode: standalone)").matches ||
+    navigator.userAgent.includes("Electron") ||
     (navigator as Navigator & { standalone?: boolean }).standalone === true
   );
 }
