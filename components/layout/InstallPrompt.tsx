@@ -1,54 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Download, X } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { promptInstall, useInstallEvent } from "@/lib/install";
 import { LogoMark } from "./Logo";
 
-/** The browser event fired when the site can be installed as an app (Chrome, Edge, Android). */
-interface BeforeInstallPromptEvent extends Event {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
-}
-
 const DISMISS_KEY = "lp-install-dismissed";
+
+function wasDismissed() {
+  try {
+    return !!localStorage.getItem(DISMISS_KEY);
+  } catch {
+    return false; // storage blocked: still offer it
+  }
+}
 
 /**
  * A friendly card offering to install Learn & Play, so it gets its own icon on
  * the home screen / desktop and opens like an app. Only shown when the browser
  * says the site is installable, and not again once installed or dismissed.
+ * (The footer's "Install app" button stays available after "Not now".)
  */
 export function InstallPrompt() {
   const t = useTranslations("Install");
-  const [event, setEvent] = useState<BeforeInstallPromptEvent | null>(null);
-
-  useEffect(() => {
-    function onPrompt(e: Event) {
-      e.preventDefault(); // we show our own, nicer prompt
-      try {
-        if (localStorage.getItem(DISMISS_KEY)) return;
-      } catch {
-        /* storage blocked: still offer it */
-      }
-      setEvent(e as BeforeInstallPromptEvent);
-    }
-    function onInstalled() {
-      setEvent(null);
-    }
-    window.addEventListener("beforeinstallprompt", onPrompt);
-    window.addEventListener("appinstalled", onInstalled);
-    return () => {
-      window.removeEventListener("beforeinstallprompt", onPrompt);
-      window.removeEventListener("appinstalled", onInstalled);
-    };
-  }, []);
+  const event = useInstallEvent();
+  const [hidden, setHidden] = useState(false);
+  const show = !!event && !hidden && !wasDismissed();
 
   async function install() {
-    if (!event) return;
-    await event.prompt();
-    await event.userChoice;
-    setEvent(null);
+    await promptInstall();
+    setHidden(true);
   }
 
   function dismiss() {
@@ -57,12 +40,12 @@ export function InstallPrompt() {
     } catch {
       /* ignore */
     }
-    setEvent(null);
+    setHidden(true);
   }
 
   return (
     <AnimatePresence>
-      {event && (
+      {show && (
         <motion.div
           role="dialog"
           aria-labelledby="install-title"

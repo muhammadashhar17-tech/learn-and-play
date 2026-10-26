@@ -2,6 +2,7 @@ import { Heart } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { NAV_ITEMS } from "@/lib/nav";
+import { InstallButton } from "./InstallButton";
 import { LogoMark } from "./Logo";
 
 export function Footer() {
@@ -22,6 +23,7 @@ export function Footer() {
             <span className="text-lg font-extrabold text-ink">{app("name")}</span>
           </div>
           <p className="mt-3 max-w-sm text-sm text-muted">{t("blurb")}</p>
+          <InstallButton />
         </div>
 
         <FooterColumn title={t("explore")}>
