@@ -161,11 +161,31 @@ npm install        # first time only
 npm run dist       # builds the site, then the .exe files into desktop/dist
 ```
 
-- `Learn-and-Play-Setup.exe` installs it with a Desktop and Start menu icon.
-- `Learn-and-Play-Portable.exe` runs straight away, no install.
+`Learn-and-Play-Setup.exe` installs it with a Desktop and Start menu icon.
 
-The files are not code-signed, so Windows may show "Windows protected your PC":
-click **More info → Run anyway**. Run `npm run dist` again after changing the site.
+The file is not code-signed, so Windows may show "Windows protected your PC":
+click **More info → Run anyway**.
+
+### Publishing an update (phone + laptop)
+
+After changing the site:
+
+```bash
+npm run deploy             # website + phone apps
+cd desktop && npm run release   # Windows app (needs "gh auth login" once)
+```
+
+- **Phone / browser app:** every build gets a new service-worker stamp
+  (`scripts/stamp-sw.mjs`). When the student opens the app, a
+  "New version available → Update" card appears; tapping it reloads on the new version.
+- **Windows app:** `npm run release` raises the version and uploads the installer to
+  GitHub Releases. Installed apps (1.0.1 and newer) download it in the background and
+  show the same card; "Update" installs it and reopens the app. Closing the app also installs it.
+- **New students:** the download link
+  `https://github.com/muhammadashhar17-tech/learn-and-play/releases/latest/download/Learn-and-Play-Setup.exe`
+  (also in the site's "Install app" box) always gives the newest version. Even an
+  older installer someone already has updates itself the first time it opens online.
+  Commit `desktop/package.json` after a release so the version number is kept.
 
 ---
 

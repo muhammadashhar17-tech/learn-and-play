@@ -11,6 +11,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { InstallPrompt } from "@/components/layout/InstallPrompt";
+import { UpdatePrompt } from "@/components/layout/UpdatePrompt";
 import "../globals.css";
 
 export const dynamicParams = false;
@@ -79,6 +80,7 @@ export default async function LocaleLayout({
             </main>
             <Footer />
             <InstallPrompt />
+            <UpdatePrompt />
           </Providers>
         </NextIntlClientProvider>
       </body>

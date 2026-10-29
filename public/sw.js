@@ -2,12 +2,20 @@
 // Pages: network first (fresh content), falling back to cache when offline.
 // Static assets (/_next/static, fonts, icons): cache first (they never change).
 // BASE is "/" on Vercel and "/learn-and-play/" on GitHub Pages.
+// CACHE gets a new build stamp on every build (scripts/stamp-sw.mjs), so each
+// deploy is a new version that the app offers as an update.
 const CACHE = "lp-v2";
 const BASE = new URL(self.registration.scope).pathname;
 const PRECACHE = ["", "en/", "ur/", "sd/", "icon.svg", "icon-192.png", "manifest.webmanifest"].map((p) => BASE + p);
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));
+  // A first install takes over at once; an update waits until the student
+  // taps "Update" (the page then sends SKIP_WAITING).
+  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)));
+});
+
+self.addEventListener("message", (event) => {
+  if (event.data === "SKIP_WAITING") self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {

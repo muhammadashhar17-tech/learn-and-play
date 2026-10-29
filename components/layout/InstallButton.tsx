@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Download, Laptop, Smartphone, X } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { site } from "@/data/site";
 import { isInstalledApp, promptInstall, useInstallEvent } from "@/lib/install";
 
 /**
@@ -71,6 +72,15 @@ export function InstallButton() {
             <li>{t("laptop2")}</li>
             <li>{t("laptop3")}</li>
           </HelpSection>
+
+          <a
+            href={site.windowsDownload}
+            className="btn-clay mt-3 flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-gradient-to-b from-brand-500 to-brand-700 px-4 text-sm font-bold text-white transition active:translate-y-0.5"
+          >
+            <Download className="size-4" aria-hidden />
+            {t("windowsDownload")}
+          </a>
+          <p className="mt-1.5 text-center text-xs text-muted">{t("windowsNote")}</p>
 
           <HelpSection icon={<Smartphone className="size-5" aria-hidden />} title={t("phoneTitle")}>
             <li>{t("android")}</li>

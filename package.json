@@ -11,7 +11,7 @@
     "icons": "node scripts/generate-icons.mjs",
     "preview": "npx --yes serve@14 out",
     "typecheck": "tsc --noEmit",
-    "postbuild": "node scripts/fix-export.mjs",
+    "postbuild": "node scripts/fix-export.mjs && node scripts/stamp-sw.mjs",
     "deploy": "node scripts/deploy-gh-pages.mjs"
   },
   "dependencies": {

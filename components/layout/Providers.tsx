@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { MotionConfig } from "framer-motion";
 import { LOCALE_STORAGE_KEY } from "@/i18n/routing";
-import { withBase } from "@/lib/base-path";
+import { startUpdates } from "@/lib/update";
 
 export function Providers({
   locale,
@@ -21,11 +21,9 @@ export function Providers({
     }
   }, [locale]);
 
-  // Offline support / installable app (production builds only).
+  // Offline support / installable app / "new version" updates (production builds only).
   useEffect(() => {
-    if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
-      navigator.serviceWorker.register(withBase("/sw.js"), { scope: withBase("/") }).catch(() => {});
-    }
+    if (process.env.NODE_ENV === "production") startUpdates();
   }, []);
 
   // "user" = follow the OS "reduce motion" setting for every Framer animation.

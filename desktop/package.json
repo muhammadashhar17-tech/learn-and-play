@@ -9,7 +9,8 @@
   "scripts": {
     "site": "node build-site.mjs",
     "start": "npm run site && electron .",
-    "dist": "npm run site && electron-builder --win portable nsis"
+    "dist": "npm run site && electron-builder --win nsis",
+    "release": "node release.mjs"
   },
   "devDependencies": {
     "electron": "38.2.0",
@@ -20,6 +21,7 @@
     "productName": "Learn & Play",
     "files": [
       "main.js",
+      "preload.js",
       "site/**/*"
     ],
     "directories": {
@@ -29,19 +31,25 @@
     "win": {
       "icon": "build/icon.png"
     },
-    "portable": {
-      "artifactName": "Learn-and-Play-Portable.exe"
-    },
     "nsis": {
       "artifactName": "Learn-and-Play-Setup.exe",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "shortcutName": "Learn & Play"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "muhammadashhar17-tech",
+      "repo": "learn-and-play",
+      "releaseType": "release"
     }
   },
   "allowScripts": {
     "electron@38.2.0": true,
     "electron-winstaller@5.4.0": true
+  },
+  "dependencies": {
+    "electron-updater": "^6.6.2"
   }
 }
