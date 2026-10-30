@@ -647,7 +647,9 @@
     "android": "Android (Chrome): open the ⋮ menu and tap “Install app” or “Add to Home screen”.",
     "iphone": "iPhone / iPad (Safari): tap the Share button, then “Add to Home Screen”.",
     "windowsDownload": "Or download the Windows app (.exe)",
-    "windowsNote": "Works without internet. If Windows warns you, click “More info” → “Run anyway”."
+    "windowsNote": "Works without internet. If Windows warns you, click “More info” → “Run anyway”.",
+    "androidDownload": "Or download the Android app (APK)",
+    "androidNote": "Open the file on the phone. If Android asks, allow “Install unknown apps”."
   },
   "Update": {
     "title": "New version available",

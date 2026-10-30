@@ -17,6 +17,9 @@ export const site = {
     url: "https://ufmgmyyhyksmzombqdwq.supabase.co",
     key: "sb_publishable_nvnbYyIfO1B325cWZP5A_g_R6C9G4Q9",
   },
+  /** The Android app (mobile/); uploaded to each GitHub release by desktop/release.mjs. */
+  androidDownload:
+    "https://github.com/muhammadashhar17-tech/learn-and-play/releases/latest/download/Learn-and-Play.apk",
   /** Always the newest Windows app (see desktop/ and "npm run release" there). */
   windowsDownload:
     "https://github.com/muhammadashhar17-tech/learn-and-play/releases/latest/download/Learn-and-Play-Setup.exe",

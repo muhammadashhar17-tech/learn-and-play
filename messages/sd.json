@@ -647,7 +647,9 @@
     "android": "اينڊرائيڊ (ڪروم): ⋮ مينيو کوليو ۽ “Install app” يا “Add to Home screen” دٻايو.",
     "iphone": "آءِ فون / آءِ پيڊ (سفاري): شيئر جو بٽڻ دٻايو، پوءِ “Add to Home Screen”.",
     "windowsDownload": "يا ونڊوز ايپ (.exe) ڊائون لوڊ ڪريو",
-    "windowsNote": "انٽرنيٽ کانسواءِ هلي ٿي. جيڪڏهن ونڊوز خبردار ڪري ته “More info” ← “Run anyway” دٻايو."
+    "windowsNote": "انٽرنيٽ کانسواءِ هلي ٿي. جيڪڏهن ونڊوز خبردار ڪري ته “More info” ← “Run anyway” دٻايو.",
+    "androidDownload": "يا اينڊرائيڊ ايپ (APK) ڊائون لوڊ ڪريو",
+    "androidNote": "فائل فون تي کوليو. جيڪڏهن اينڊرائيڊ پڇي ته “Install unknown apps” جي اجازت ڏيو."
   },
   "Update": {
     "title": "نئون ورزن آيو آهي",

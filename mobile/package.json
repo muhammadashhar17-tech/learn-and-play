@@ -1,0 +1,18 @@
+{
+  "name": "learn-and-play-android",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Learn & Play as an Android app (APK). It opens the live website, so it always has the newest version.",
+  "scripts": {
+    "sync": "cap sync android",
+    "icons": "node make-icons.mjs",
+    "apk": "node build-apk.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "7.6.10",
+    "@capacitor/core": "7.6.10"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "7.6.10"
+  }
+}

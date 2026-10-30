@@ -647,7 +647,9 @@
     "android": "اینڈرائیڈ (کروم): ⋮ مینو کھولیں اور “Install app” یا “Add to Home screen” دبائیں۔",
     "iphone": "آئی فون / آئی پیڈ (سفاری): شیئر کا بٹن دبائیں، پھر “Add to Home Screen”۔",
     "windowsDownload": "یا ونڈوز ایپ (.exe) ڈاؤن لوڈ کریں",
-    "windowsNote": "بغیر انٹرنیٹ کے چلتی ہے۔ اگر ونڈوز خبردار کرے تو “More info” ← “Run anyway” دبائیں۔"
+    "windowsNote": "بغیر انٹرنیٹ کے چلتی ہے۔ اگر ونڈوز خبردار کرے تو “More info” ← “Run anyway” دبائیں۔",
+    "androidDownload": "یا اینڈرائیڈ ایپ (APK) ڈاؤن لوڈ کریں",
+    "androidNote": "فائل فون پر کھولیں۔ اگر اینڈرائیڈ پوچھے تو “Install unknown apps” کی اجازت دیں۔"
   },
   "Update": {
     "title": "نیا ورژن آ گیا ہے",

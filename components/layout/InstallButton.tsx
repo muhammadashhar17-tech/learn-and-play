@@ -86,6 +86,15 @@ export function InstallButton() {
             <li>{t("android")}</li>
             <li>{t("iphone")}</li>
           </HelpSection>
+
+          <a
+            href={site.androidDownload}
+            className="btn-clay mt-3 flex min-h-11 items-center justify-center gap-2 rounded-2xl bg-gradient-to-b from-emerald-500 to-emerald-700 px-4 text-sm font-bold text-white transition active:translate-y-0.5"
+          >
+            <Download className="size-4" aria-hidden />
+            {t("androidDownload")}
+          </a>
+          <p className="mt-1.5 text-center text-xs text-muted">{t("androidNote")}</p>
         </div>
       </dialog>
     </>

@@ -1,0 +1,14 @@
+{
+  "appId": "pk.edu.learnandplay",
+  "appName": "Learn & Play",
+  "webDir": "www",
+  "server": {
+    "url": "https://muhammadashhar17-tech.github.io/learn-and-play/",
+    "errorPath": "offline.html",
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#f2f7fe",
+    "allowMixedContent": false
+  }
+}
