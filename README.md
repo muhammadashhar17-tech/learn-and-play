@@ -186,7 +186,7 @@ cd desktop && npm run release   # Windows app (needs "gh auth login" once)
   `https://github.com/muhammadashhar17-tech/learn-and-play/releases/latest/download/Learn-and-Play-Setup.exe`
   (also in the site's "Install app" box) always gives the newest version. Even an
   older installer someone already has updates itself the first time it opens online.
-  Commit `desktop/package.json` after a release so the version number is kept.
+  Commit `desktop/package.json` and `package-lock.json` after a release so the version number is kept.
 
 ---
 

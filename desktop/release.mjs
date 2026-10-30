@@ -13,4 +13,4 @@ run("npm version patch --no-git-tag-version");
 const token = execSync("gh auth token", { encoding: "utf8" }).trim();
 run("npm run site");
 run("npx electron-builder --win nsis --publish always", { ...process.env, GH_TOKEN: token });
-console.log("\n✓ Released. Commit desktop/package.json so the version number is saved.\n");
+console.log("\n✓ Released. Commit desktop/package.json and package-lock.json so the version number is saved.\n");
