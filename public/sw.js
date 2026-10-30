@@ -1,6 +1,6 @@
 // Learn & Play service worker: makes the app installable and usable offline.
 // Pages: network first (fresh content), falling back to cache when offline.
-// Static assets (/_next/static, fonts, icons): cache first (they never change).
+// Static assets (/_next/static, fonts, icons, voice clips): cache first (they never change).
 // BASE is "/" on Vercel and "/learn-and-play/" on GitHub Pages.
 // CACHE gets a new build stamp on every build (scripts/stamp-sw.mjs), so each
 // deploy is a new version that the app offers as an update.
@@ -34,7 +34,7 @@ self.addEventListener("fetch", (event) => {
 
   const isStatic =
     url.pathname.includes("/_next/static/") ||
-    /\.(png|svg|ico|woff2?|webmanifest)$/.test(url.pathname);
+    /\.(png|svg|ico|woff2?|webmanifest|mp3)$/.test(url.pathname);
 
   if (isStatic) {
     event.respondWith(
@@ -42,7 +42,11 @@ self.addEventListener("fetch", (event) => {
         (hit) =>
           hit ||
           fetch(request).then((res) => {
-            if (res.ok) caches.open(CACHE).then((c) => c.put(request, res.clone()));
+            // Only whole files: audio can arrive as 206 partial responses, which the cache refuses.
+            if (res.status === 200) {
+              const copy = res.clone(); // clone now, before the page reads the body
+              caches.open(CACHE).then((c) => c.put(request, copy));
+            }
             return res;
           }),
       ),

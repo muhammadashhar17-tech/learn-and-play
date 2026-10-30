@@ -14,7 +14,10 @@ export type BadgeId =
   | "wordLearner"
   | "bookworm"
   | "languageMaster"
-  | "chatterbox";
+  | "chatterbox"
+  | "gamer"
+  | "gameExplorer"
+  | "gameStar";
 
 export interface Badge {
   id: BadgeId;
@@ -23,6 +26,7 @@ export interface Badge {
 
 const totalPoints = (p: ProgressState) => p.quizzes.reduce((n, q) => n + q.points, 0);
 const lessonsDone = (p: ProgressState) => Object.keys(p.lessons).length;
+const gamesPlayed = (p: ProgressState) => Object.keys(p.games).length;
 
 /** Badges are worked out from saved progress, so they can never get out of sync. */
 export const BADGES: Badge[] = [
@@ -38,6 +42,9 @@ export const BADGES: Badge[] = [
   { id: "bookworm", earned: (p) => lessonsDone(p) >= 4 },
   { id: "languageMaster", earned: (p) => lessonsDone(p) >= LESSONS.length },
   { id: "chatterbox", earned: (p) => p.chatMessages >= 5 },
+  { id: "gamer", earned: (p) => gamesPlayed(p) >= 1 },
+  { id: "gameExplorer", earned: (p) => gamesPlayed(p) >= 10 },
+  { id: "gameStar", earned: (p) => Object.values(p.games).filter((g) => g.stars === 3).length >= 5 },
 ];
 
 export function summarize(p: ProgressState) {
@@ -50,6 +57,7 @@ export function summarize(p: ProgressState) {
     points: totalPoints(p),
     best: quizzes.reduce((m, q) => Math.max(m, q.points), 0),
     lessons: lessonsDone(p),
+    games: gamesPlayed(p),
     accuracy,
   };
 }

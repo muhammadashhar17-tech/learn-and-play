@@ -6,7 +6,12 @@ export type LessonId =
   | "family"
   | "greetings"
   | "fruits"
-  | "days";
+  | "days"
+  | "body"
+  | "vegetables"
+  | "transport"
+  | "school"
+  | "weather";
 
 /**
  * One flashcard. `en`/`ur`/`sd` are the word in each language and

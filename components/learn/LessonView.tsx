@@ -8,7 +8,7 @@ import { getLesson, LESSONS, type LessonId, type Word } from "@/data/lessons";
 import { isRtl } from "@/i18n/routing";
 import { shuffle } from "@/lib/quiz";
 import { playSound } from "@/lib/sound";
-import { useVoice } from "@/lib/speech";
+import { useCanSay } from "@/lib/speech";
 import { useHydrated } from "@/lib/storage";
 import { Button } from "@/components/ui/Button";
 import { Flashcard } from "./Flashcard";
@@ -20,7 +20,8 @@ export function LessonView({ lessonId }: { lessonId: LessonId }) {
   const locale = useLocale();
   const rtl = isRtl(locale);
   const hydrated = useHydrated();
-  const urduVoice = useVoice("ur");
+  // Tip only when this lesson's Urdu words cannot be read aloud here.
+  const urduVoice = useCanSay(lesson.words[0].ur, "ur");
 
   const [mode, setMode] = useState<"cards" | "practice">("cards");
   const [cards, setCards] = useState<Word[]>(lesson.words);

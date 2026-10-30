@@ -3,16 +3,17 @@ import { SCIENCE_QUESTIONS } from "./science";
 import { MATH_QUESTIONS } from "./math";
 import { HISTORY_QUESTIONS } from "./history";
 import { LANGUAGE_QUESTIONS } from "./language";
+import { EXTRA_QUESTIONS } from "./extra";
 import type { Category, CategoryId, Difficulty } from "./types";
 
 export * from "./types";
 
 export const CATEGORIES: Category[] = [
-  { id: "gk", questions: GK_QUESTIONS },
-  { id: "science", questions: SCIENCE_QUESTIONS },
-  { id: "math", questions: MATH_QUESTIONS },
-  { id: "history", questions: HISTORY_QUESTIONS },
-  { id: "language", questions: LANGUAGE_QUESTIONS },
+  { id: "gk", questions: [...GK_QUESTIONS, ...EXTRA_QUESTIONS.gk] },
+  { id: "science", questions: [...SCIENCE_QUESTIONS, ...EXTRA_QUESTIONS.science] },
+  { id: "math", questions: [...MATH_QUESTIONS, ...EXTRA_QUESTIONS.math] },
+  { id: "history", questions: [...HISTORY_QUESTIONS, ...EXTRA_QUESTIONS.history] },
+  { id: "language", questions: [...LANGUAGE_QUESTIONS, ...EXTRA_QUESTIONS.language] },
 ];
 
 export const CATEGORY_IDS = CATEGORIES.map((c) => c.id);

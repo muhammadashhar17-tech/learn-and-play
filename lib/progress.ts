@@ -20,13 +20,22 @@ export interface LessonRecord {
   bestScore: number;
 }
 
+export interface GameRecord {
+  /** Best score, 0–100. */
+  best: number;
+  stars: 0 | 1 | 2 | 3;
+  plays: number;
+  lastPlayed: number;
+}
+
 export interface ProgressState {
   quizzes: QuizRecord[];
   lessons: Record<string, LessonRecord>;
+  games: Record<string, GameRecord>;
   chatMessages: number;
 }
 
-const EMPTY: ProgressState = { quizzes: [], lessons: {}, chatMessages: 0 };
+const EMPTY: ProgressState = { quizzes: [], lessons: {}, games: {}, chatMessages: 0 };
 
 export const progressStore = createLocalStore<ProgressState>("lp-progress", EMPTY);
 
@@ -48,6 +57,24 @@ export function completeLesson(lessonId: string, score: number) {
         [lessonId]: {
           completedAt: prev?.completedAt ?? Date.now(),
           bestScore: Math.max(prev?.bestScore ?? 0, score),
+        },
+      },
+    };
+  });
+}
+
+export function saveGame(gameId: string, score: number, stars: GameRecord["stars"]) {
+  progressStore.set((p) => {
+    const prev = p.games[gameId];
+    return {
+      ...p,
+      games: {
+        ...p.games,
+        [gameId]: {
+          best: Math.max(prev?.best ?? 0, score),
+          stars: Math.max(prev?.stars ?? 0, stars) as GameRecord["stars"],
+          plays: (prev?.plays ?? 0) + 1,
+          lastPlayed: Date.now(),
         },
       },
     };

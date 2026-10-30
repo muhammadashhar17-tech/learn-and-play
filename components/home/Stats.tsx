@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, CircleHelp, Languages, Type, type LucideIcon } from "lucide-react";
+import { BookOpen, CircleHelp, Gamepad2, Type, type LucideIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Reveal } from "@/components/ui/Reveal";
 import { Aurora } from "@/components/ui/Aurora";
@@ -9,14 +9,14 @@ import { CountUp } from "@/components/ui/CountUp";
 export interface StatValues {
   questions: number;
   lessons: number;
-  languages: number;
+  games: number;
   words: number;
 }
 
 const ITEMS: { key: keyof StatValues; icon: LucideIcon }[] = [
   { key: "questions", icon: CircleHelp },
+  { key: "games", icon: Gamepad2 },
   { key: "lessons", icon: BookOpen },
-  { key: "languages", icon: Languages },
   { key: "words", icon: Type },
 ];
 

@@ -13,8 +13,9 @@ const ORIGIN = "app://learn-and-play";
 const CHECK_EVERY = 60 * 60 * 1000; // look for updates once an hour while open
 
 // A proper "web origin" so localStorage (progress, scores) is kept between runs.
+// `stream` lets <audio> play the recorded voice clips from inside the app.
 protocol.registerSchemesAsPrivileged([
-  { scheme: "app", privileges: { standard: true, secure: true, supportFetchAPI: true } },
+  { scheme: "app", privileges: { standard: true, secure: true, supportFetchAPI: true, stream: true } },
 ]);
 
 /** /en/quiz/ → site/en/quiz/index.html; unknown pages → site/404.html. */

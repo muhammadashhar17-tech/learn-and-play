@@ -10,7 +10,7 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
-import { ArrowRight, BookOpen, Brain, CheckCircle2, MessageCircle, Palette, Pencil, Ruler, Sparkles, Star } from "lucide-react";
+import { ArrowRight, BookOpen, Brain, CheckCircle2, Gamepad2, MessageCircle, Palette, Pencil, Ruler, Sparkles, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { ButtonLink } from "@/components/ui/Button";
 import { Aurora } from "@/components/ui/Aurora";
@@ -85,6 +85,10 @@ export function Hero() {
               <Brain className="size-5 transition-transform group-hover:-rotate-12 group-hover:scale-110" aria-hidden />
               {t("ctaQuiz")}
               <ArrowRight className="size-5 transition-transform group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1" aria-hidden />
+            </ButtonLink>
+            <ButtonLink href="/games" variant="secondary" className="group px-6 py-3.5 text-lg backdrop-blur">
+              <Gamepad2 className="size-5 transition-transform group-hover:-rotate-6 group-hover:scale-110" aria-hidden />
+              {t("ctaGames")}
             </ButtonLink>
             <ButtonLink href="/learn" variant="secondary" className="group px-6 py-3.5 text-lg backdrop-blur">
               <BookOpen className="size-5 transition-transform group-hover:-rotate-6 group-hover:scale-110" aria-hidden />

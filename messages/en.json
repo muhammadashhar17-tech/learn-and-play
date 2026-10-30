@@ -16,7 +16,8 @@
     "progress": "My Progress",
     "leaderboard": "Leaderboard",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "games": "Games"
   },
   "Language": {
     "label": "Choose language",
@@ -65,7 +66,7 @@
     "appName": "Learn & Play",
     "home": {
       "title": "Fun learning in English, Urdu & Sindhi",
-      "description": "Free quizzes, flashcards and a friendly chatbot for primary school students (Class 1–5) in Sindh, Pakistan — in English, Urdu and Sindhi."
+      "description": "Free quizzes, 28 learning games, flashcards and a friendly chatbot for primary school students (Class 1–5) in Sindh, Pakistan — in English, Urdu and Sindhi."
     },
     "quiz": {
       "title": "Quiz Game",
@@ -94,6 +95,10 @@
     "contact": {
       "title": "Contact",
       "description": "Send us a message, idea or question."
+    },
+    "games": {
+      "title": "Learning Games",
+      "description": "28 learning games for Class 1–5: maths, science, language and Pakistan. Every game starts with a short lesson."
     }
   },
   "Home": {
@@ -106,7 +111,7 @@
         "shine bright!",
         "dream big!"
       ],
-      "subtitle": "Fun quizzes, talking flashcards and a friendly chatbot — made for primary students (Class 1–5) of Sindh in English, Urdu and Sindhi.",
+      "subtitle": "Fun quizzes, 28 learning games, talking flashcards and a friendly chatbot — made for primary students (Class 1–5) of Sindh in English, Urdu and Sindhi.",
       "ctaQuiz": "Start a quiz",
       "ctaLearn": "Learn words",
       "cardQuizLabel": "Quiz time!",
@@ -115,10 +120,11 @@
       "cardFlash": "Flashcard",
       "cardChat": "Hi! Ask me anything 👋",
       "cardPoints": "+10 points",
-      "illustration": "Preview of a quiz question, a flashcard and the chatbot"
+      "illustration": "Preview of a quiz question, a flashcard and the chatbot",
+      "ctaGames": "Play games"
     },
     "features": {
-      "title": "Three fun ways to learn",
+      "title": "Four fun ways to learn",
       "subtitle": "Pick what you like — every activity works in English, Urdu and Sindhi.",
       "open": "Open",
       "quiz": {
@@ -132,13 +138,17 @@
       "chat": {
         "title": "Friendly Chatbot",
         "text": "Ask for a translation, a sum or a fun fact about Pakistan and Sindh."
+      },
+      "games": {
+        "title": "Learning Games",
+        "text": "28 games for maths, science, language and Pakistan — each one starts with a short lesson."
       }
     },
     "stats": {
       "title": "Learning in numbers",
       "questions": "Quiz questions",
       "lessons": "Lessons",
-      "languages": "Languages",
+      "games": "Learning games",
       "words": "Words to learn"
     },
     "testimonials": {
@@ -301,6 +311,26 @@
       "days": {
         "title": "Days of the Week",
         "text": "Monday to Sunday in English, Urdu and Sindhi."
+      },
+      "body": {
+        "title": "My Body",
+        "text": "Head, eyes, hands and feet — the parts of your body."
+      },
+      "vegetables": {
+        "title": "Vegetables",
+        "text": "Potatoes, tomatoes, carrots and other healthy vegetables."
+      },
+      "transport": {
+        "title": "Transport",
+        "text": "Bus, train, rickshaw and boat — ways to travel."
+      },
+      "school": {
+        "title": "At School",
+        "text": "Book, pen, teacher and everything in your classroom."
+      },
+      "weather": {
+        "title": "Sky and Weather",
+        "text": "Sun, moon, clouds, rain and the rainbow."
       }
     },
     "overview": "{done} of {total} lessons completed",
@@ -403,7 +433,8 @@
       "points": "Total points",
       "best": "Best score",
       "lessons": "Lessons done",
-      "accuracy": "Average accuracy"
+      "accuracy": "Average accuracy",
+      "games": "Games played"
     },
     "chartTitle": "Your last quizzes",
     "chartSubtitle": "Accuracy of each quiz, oldest to newest",
@@ -470,13 +501,26 @@
       },
       "languageMaster": {
         "name": "Language Master",
-        "text": "Complete all 8 lessons."
+        "text": "Complete all 13 lessons."
       },
       "chatterbox": {
         "name": "Chatterbox",
         "text": "Send 5 messages to Saathi."
+      },
+      "gamer": {
+        "name": "Game On!",
+        "text": "Play your first learning game."
+      },
+      "gameExplorer": {
+        "name": "Game Explorer",
+        "text": "Play 10 different games."
+      },
+      "gameStar": {
+        "name": "Game Star",
+        "text": "Get 3 stars in 5 games."
       }
-    }
+    },
+    "playGame": "Play a game"
   },
   "Leaderboard": {
     "title": "Leaderboard",
@@ -507,7 +551,7 @@
     "schoolName": "Govt Girls School",
     "schoolText": "Learn & Play was created for the primary students (Class 1–5) and teachers of {school} in Sindh, Pakistan. Questions and words grow from Class 1 to Class 5, and any school can use it for free.",
     "featuresTitle": "What's inside",
-    "feature1": "75 quiz questions in five subjects, with a level for every class (1–5)",
+    "feature1": "150 quiz questions in five subjects and 28 learning games, with a level for every class (1–5)",
     "feature2": "8 picture lessons with more than 100 words in three languages",
     "feature3": "Saathi, an offline chatbot that translates, counts and tells facts",
     "feature4": "Badges, a leaderboard and a progress chart to stay motivated",
@@ -601,5 +645,53 @@
     "button": "Update",
     "updating": "Updating…",
     "later": "Later"
+  },
+  "Games": {
+    "title": "Learning Games",
+    "subtitle": "Learn something new, then play to remember it. Every game starts with a short lesson.",
+    "overview": "{played} of {total} games played",
+    "starsTotal": "{stars} / {total} stars",
+    "filter": "Show games for",
+    "subjects": {
+      "all": "All games",
+      "math": "Maths",
+      "science": "Science",
+      "language": "Language",
+      "gk": "Pakistan & GK"
+    },
+    "stars": "{stars} out of 3 stars",
+    "play": "Play",
+    "playAgain": "Play again",
+    "learnFirst": "Learn first",
+    "howToPlay": "How to play",
+    "startGame": "Start the game",
+    "title0": "Keep practising!",
+    "title1": "Good try!",
+    "title2": "Great job!",
+    "title3": "Superstar!",
+    "scoreLine": "You got {correct} out of {total} right",
+    "nextGame": "Next: {game}",
+    "readLesson": "Read the lesson again",
+    "allGames": "All games",
+    "timeLeft": "{seconds} s left",
+    "scoreSoFar": "{correct} right",
+    "questionOf": "Question {current} of {total}",
+    "correct": "Correct! 🎉",
+    "wrong": "Not quite — the right answer is in green.",
+    "next": "Next",
+    "finish": "See my score",
+    "pairsFound": "Pairs found",
+    "matchHint": "Tap a card on the left, then its partner on the right.",
+    "itemOf": "Item {current} of {total}",
+    "sortHint": "Which group does it belong to?",
+    "belongsTo": "{item} goes in “{group}”.",
+    "roundOf": "Round {current} of {total}",
+    "orderHint": "Tap them in order: what comes first?",
+    "orderDone": "Well done — all in order! 🎉",
+    "wordOf": "Word {current} of {total}",
+    "undo": "Remove last letter",
+    "spelledAs": "It is spelled {word}.",
+    "playWord": "Play the word again",
+    "hearIn": "Word in {language}"
   }
 }

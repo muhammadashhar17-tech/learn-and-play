@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { BookOpen, Brain, CheckCircle2, Circle, Library, Lock, Sprout, Star, Target, Trash2, Trophy } from "lucide-react";
+import { BookOpen, Brain, CheckCircle2, Circle, Gamepad2, Library, Lock, Sprout, Star, Target, Trash2, Trophy } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { CATEGORIES } from "@/data/quiz";
+import { GAMES } from "@/data/games";
 import { LESSONS } from "@/data/lessons";
 import { Link } from "@/i18n/navigation";
 import { BADGES, summarize } from "@/lib/badges";
@@ -34,7 +35,7 @@ export function ProgressDashboard() {
   const stats = summarize(progress);
   const best = bestByCategory(progress.quizzes);
   const earned = BADGES.filter((b) => b.earned(progress));
-  const empty = progress.quizzes.length === 0 && stats.lessons === 0 && progress.chatMessages === 0;
+  const empty = progress.quizzes.length === 0 && stats.lessons === 0 && stats.games === 0 && progress.chatMessages === 0;
 
   if (empty) {
     return (
@@ -49,6 +50,10 @@ export function ProgressDashboard() {
               <ButtonLink href="/quiz">
                 <Brain className="size-5" aria-hidden />
                 {t("playQuiz")}
+              </ButtonLink>
+              <ButtonLink href="/games" variant="secondary">
+                <Gamepad2 className="size-5" aria-hidden />
+                {t("playGame")}
               </ButtonLink>
               <ButtonLink href="/learn" variant="secondary">
                 <BookOpen className="size-5" aria-hidden />
@@ -67,6 +72,7 @@ export function ProgressDashboard() {
     { label: t("stats.points"), value: stats.points, icon: Star, tile: "from-yellow-300 to-amber-500" },
     { label: t("stats.best"), value: stats.best, icon: Trophy, tile: "from-amber-300 to-orange-500" },
     { label: t("stats.lessons"), value: `${stats.lessons}/${LESSONS.length}`, icon: Library, tile: "from-emerald-400 to-teal-600" },
+    { label: t("stats.games"), value: `${stats.games}/${GAMES.length}`, icon: Gamepad2, tile: "from-violet-400 to-fuchsia-600" },
     { label: t("stats.accuracy"), value: `${stats.accuracy}%`, icon: Target, tile: "from-pink-400 to-rose-600" },
   ];
 
@@ -75,7 +81,7 @@ export function ProgressDashboard() {
   return (
     <div className="mx-auto max-w-7xl space-y-8 px-4 py-10 sm:px-6">
       {/* Stat tiles */}
-      <dl className="grid grid-cols-2 gap-4 md:grid-cols-5">
+      <dl className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
         {tiles.map((tile, i) => (
           <motion.div
             key={tile.label}

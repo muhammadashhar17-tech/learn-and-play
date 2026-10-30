@@ -9,8 +9,9 @@ Where the text lives:
 | What | File |
 |---|---|
 | All buttons, titles, messages, chatbot phrases | `messages/en.json`, `messages/ur.json`, `messages/sd.json` |
-| Quiz questions | `data/quiz/*.ts` |
-| Flashcard words + Roman pronunciation | `data/lessons/alphabet.ts`, `data/lessons/words.ts` |
+| Quiz questions | `data/quiz/*.ts` (new ones in `data/quiz/extra.ts`) |
+| Games: titles, lessons, questions | `data/games/*.ts` |
+| Flashcard words + Roman pronunciation | `data/lessons/alphabet.ts`, `data/lessons/words.ts`, `data/lessons/more.ts` |
 | Chatbot answers and fun facts | `data/chatbot/knowledge.ts` |
 | Home page testimonials (samples) | `data/testimonials.ts` |
 
@@ -120,3 +121,32 @@ Please ask a teacher to confirm these statements used by the chatbot and quiz:
 - The national game of Pakistan is **hockey** (quiz gk-15).
 - In the Sindhi chatbot answer about Allama Iqbal, the poem title
   “لب پہ آتی ہے دعا” is deliberately left in Urdu script.
+
+---
+
+## Added in the games update (please check first)
+
+All of this was written without a native speaker. The Sindhi is the most likely to
+need fixes.
+
+- **28 games** in `data/games/` — titles, the "Learn first" points, sort items,
+  match pairs and the science true/false facts. Science words to check in Sindhi:
+  `پاڻاٺ` (liquid), `ٿڻڀرا` (mammals), `ڪنڀا` (gills), `سڀ خور` (omnivore),
+  `ٻوٽا کائيندڙ` (herbivore), `ڦوٽ` (sprout), `ڪويو` (pupa), `سُنڍي` (caterpillar).
+- **75 new quiz questions** in `data/quiz/extra.ts` (15 per subject).
+- **5 new lessons** and extra cards in `data/lessons/more.ts`. Please check the
+  Sindhi for: `ٻانگي` (cucumber), `بصر` (onion), `ٿيلهو` (school bag),
+  `تختي` (blackboard), `اندرڌنش` (rainbow), `رات سٺي` (good night),
+  `گڏهه گاڏي` (donkey cart), and the Roman spellings.
+- Shapes: Urdu `مخمس` / `مسدس` and Sindhi `پنج ڪنڊو` / `ڇهه ڪنڊو` for pentagon / hexagon.
+- National bird **Chukar** is written `چکور` / `چڪور`.
+
+### Facts to verify (games)
+- Arfa Karim — "youngest computer expert" (Microsoft Certified Professional at age 9).
+- The Sindh Assembly passed its Pakistan resolution in **1943** (quiz his-x12).
+- Kot Diji Fort is in **Khairpur** district (quiz his-x15).
+
+### Recorded voices
+The "Listen" clips in `public/audio` are made by a computer voice, not a person.
+Please listen to a few Urdu clips (Learn → any lesson → flip a card) and say if a
+word sounds wrong; it can be re-made after fixing the spelling.

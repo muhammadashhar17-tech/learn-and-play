@@ -2,6 +2,7 @@ import {
   BarChart3,
   BookOpen,
   Brain,
+  Gamepad2,
   Home,
   Info,
   Mail,
@@ -13,6 +14,7 @@ import {
 export type NavKey =
   | "home"
   | "quiz"
+  | "games"
   | "learn"
   | "chat"
   | "progress"
@@ -31,10 +33,11 @@ export interface NavItem {
 export const NAV_ITEMS: NavItem[] = [
   { key: "home", href: "/", icon: Home },
   { key: "quiz", href: "/quiz", icon: Brain, primary: true },
+  { key: "games", href: "/games", icon: Gamepad2, primary: true },
   { key: "learn", href: "/learn", icon: BookOpen, primary: true },
   { key: "chat", href: "/chat", icon: MessageCircle, primary: true },
   { key: "progress", href: "/progress", icon: BarChart3, primary: true },
-  { key: "leaderboard", href: "/leaderboard", icon: Trophy, primary: true },
+  { key: "leaderboard", href: "/leaderboard", icon: Trophy },
   { key: "about", href: "/about", icon: Info },
   { key: "contact", href: "/contact", icon: Mail },
 ];

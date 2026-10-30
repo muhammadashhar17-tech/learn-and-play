@@ -1,8 +1,8 @@
 import { initLocale } from "@/lib/locale";
 import { pageMetadata } from "@/lib/seo";
 import { TOTAL_QUESTIONS } from "@/data/quiz";
+import { GAMES } from "@/data/games";
 import { LESSONS, TOTAL_WORDS } from "@/data/lessons";
-import { routing } from "@/i18n/routing";
 import { Hero } from "@/components/home/Hero";
 import { Features } from "@/components/home/Features";
 import { Levels } from "@/components/home/Levels";
@@ -26,7 +26,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         values={{
           questions: TOTAL_QUESTIONS,
           lessons: LESSONS.length,
-          languages: routing.locales.length,
+          games: GAMES.length,
           words: TOTAL_WORDS,
         }}
       />

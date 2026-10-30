@@ -6,6 +6,7 @@ import { site } from "@/data/site";
 export type PageKey =
   | "home"
   | "quiz"
+  | "games"
   | "learn"
   | "chat"
   | "progress"

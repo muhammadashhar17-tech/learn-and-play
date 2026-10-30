@@ -1,14 +1,15 @@
 "use client";
 
-import { ArrowRight, BookOpen, Brain, MessageCircle, type LucideIcon } from "lucide-react";
+import { ArrowRight, BookOpen, Brain, Gamepad2, MessageCircle, type LucideIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/ui/Reveal";
 import { TiltCard } from "@/components/ui/TiltCard";
 import { ClayIcon } from "@/components/ui/ClayIcon";
 
-const FEATURES: { key: "quiz" | "learn" | "chat"; href: string; icon: LucideIcon; tile: string; wash: string }[] = [
+const FEATURES: { key: "quiz" | "games" | "learn" | "chat"; href: string; icon: LucideIcon; tile: string; wash: string }[] = [
   { key: "quiz", href: "/quiz", icon: Brain, tile: "from-brand-400 to-brand-700", wash: "from-brand-50" },
+  { key: "games", href: "/games", icon: Gamepad2, tile: "from-pink-400 to-violet-600", wash: "from-pink-50" },
   { key: "learn", href: "/learn", icon: BookOpen, tile: "from-emerald-400 to-teal-600", wash: "from-emerald-50" },
   { key: "chat", href: "/chat", icon: MessageCircle, tile: "from-amber-300 to-orange-500", wash: "from-amber-50" },
 ];
@@ -23,7 +24,7 @@ export function Features() {
         <p className="mt-3 text-lg text-muted">{t("subtitle")}</p>
       </Reveal>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {FEATURES.map((f, i) => {
           const Icon = f.icon;
           return (

@@ -13,6 +13,7 @@ import { burstFrom } from "@/lib/confetti";
 import { MuteToggle } from "@/components/ui/MuteToggle";
 import { ClayIcon } from "@/components/ui/ClayIcon";
 import { CATEGORY_ICONS } from "@/lib/icons";
+import { ListenButton } from "@/components/learn/ListenButton";
 import { TimerRing } from "./TimerRing";
 import type { AnswerRecord } from "./QuizGame";
 
@@ -160,6 +161,8 @@ export function QuizPlay({
             <h2 className="flex-1 pt-2 text-xl font-bold text-ink sm:text-2xl" id="question-text">
               {pick(question.question.q, locale)}
             </h2>
+            {/* Young readers can hear the question (recorded clip or device voice). */}
+            <ListenButton text={pick(question.question.q, locale)} lang={locale as "en" | "ur" | "sd"} className="mt-1 size-9" />
           </div>
 
           <div role="group" aria-labelledby="question-text" className="mt-6 grid gap-3 sm:grid-cols-2">

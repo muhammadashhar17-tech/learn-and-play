@@ -11,7 +11,7 @@ export function Footer() {
   const app = useTranslations("App");
   const year = new Date().getFullYear();
 
-  const explore = NAV_ITEMS.filter((i) => ["quiz", "learn", "chat", "progress"].includes(i.key));
+  const explore = NAV_ITEMS.filter((i) => ["quiz", "games", "learn", "chat", "progress"].includes(i.key));
   const more = NAV_ITEMS.filter((i) => ["leaderboard", "about", "contact"].includes(i.key));
 
   return (

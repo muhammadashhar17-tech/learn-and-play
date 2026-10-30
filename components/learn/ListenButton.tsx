@@ -2,21 +2,21 @@
 
 import { Volume2 } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { speak, useVoice, type SpeechLang } from "@/lib/speech";
+import { say, useCanSay, type SpeechLang } from "@/lib/speech";
 
-/** Renders nothing when the device has no voice for this language. */
+/** Renders nothing when the text has no recorded clip and the device has no voice for the language. */
 export function ListenButton({ text, lang, className = "" }: { text: string; lang: SpeechLang; className?: string }) {
   const t = useTranslations("Learn");
   const language = useTranslations("Language");
-  const voice = useVoice(lang);
-  if (!voice) return null;
+  const canSay = useCanSay(text, lang);
+  if (!canSay) return null;
 
   return (
     <button
       type="button"
       onClick={(e) => {
         e.stopPropagation();
-        speak(text, voice);
+        say(text, lang);
       }}
       aria-label={t("listen", { language: language(lang) })}
       title={t("listen", { language: language(lang) })}

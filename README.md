@@ -13,10 +13,11 @@ can be installed on phones as an app.
 | Page | What students can do |
 |---|---|
 | **Home** | Animated welcome, feature cards, live stats, testimonials |
-| **Quiz** | 5 subjects × 15 questions, Easy / Medium / Hard, timer, sounds, confetti, results with review |
-| **Learn** | 8 lessons (Alphabet, Numbers, Colours, Animals, Family, Greetings, Fruits, Days) with 3D flip cards, Roman pronunciation, "Listen" buttons and a mini quiz |
+| **Quiz** | 5 subjects × 30 questions, Easy / Medium / Hard, timer, sounds, confetti, results with review, a "Listen" button on every question |
+| **Games** | 28 learning games in Maths, Science, Language and Pakistan & GK. Each one starts with a short "Learn first" lesson, then the game, then stars and a score |
+| **Learn** | 13 lessons (Alphabet, Numbers, Colours, Animals, Family, Greetings, Fruits, Days, My Body, Vegetables, Transport, At School, Sky and Weather) with 3D flip cards, Roman pronunciation, "Listen" buttons and a mini quiz |
 | **Chatbot** | "Saathi", an offline helper that translates words, solves sums, shares fun facts and answers questions about Pakistan, Sindh, Bhittai and Iqbal (understands English, Urdu and Roman Urdu) |
-| **My Progress** | Quiz history, best scores, lessons completed, 12 badges, a chart, reset button |
+| **My Progress** | Quiz history, best scores, lessons completed, 15 badges, a chart, reset button |
 | **Leaderboard** | Top scores saved on this device |
 | **About / Contact** | About the app and school; a contact form that opens the visitor's e-mail app |
 
@@ -211,27 +212,53 @@ app/
   layout.tsx, page.tsx, not-found.tsx   root redirect + global 404 page
   [locale]/                             every page, once per language (en, ur, sd)
     layout.tsx  template.tsx            <html lang dir>, fonts, navbar, footer, page transition
-    page.tsx quiz/ learn/ learn/[lesson]/ chat/ progress/ leaderboard/ about/ contact/
+    page.tsx quiz/ games/ games/[game]/ learn/ learn/[lesson]/ chat/ progress/ leaderboard/ about/ contact/
   sitemap.ts robots.ts                  SEO files (generated at build time)
 components/                             UI, grouped by page (home, quiz, learn, chat, progress…)
-data/                                   ALL content: quiz questions, lesson words, chatbot facts
-  quiz/  lessons/  chatbot/  testimonials.ts  site.ts
+data/                                   ALL content: quiz questions, games, lesson words, chatbot facts
+  quiz/  games/  lessons/  chatbot/  testimonials.ts  site.ts  audio-manifest.json
 i18n/                                   language routing (next-intl)
 lib/                                    logic: storage, progress & badges, sounds, speech, quiz
   chat/                                 chatbot engine (rule-based; swap point for a real AI)
 messages/                               en.json · ur.json · sd.json — every piece of UI text
 public/                                 icons, Open Graph image, manifest, service worker
+  audio/en/ audio/ur/ audio/sd/          recorded voice clips (made by scripts/tts)
 scripts/                                icon generator, translation checker, export fix
+  tts/                                  makes the voice clips
 ```
 
 ### Adding content
 - **A quiz question:** add an entry to the right file in `data/quiz/` (write the
   question and options in `en`, `ur` and `sd`; `answer` is the index of the correct option).
-- **A flashcard word:** add an entry to a list in `data/lessons/words.ts`.
+- **A flashcard word:** add an entry to a list in `data/lessons/words.ts` (or `more.ts`).
+- **A game:** add an entry to a file in `data/games/` (`math.ts`, `science.ts`,
+  `language.ts`, `gk.ts`). Pick a `kind` — `match`, `sort`, `order`, `quick` or
+  `spell` — the game screens are shared. Give it 2–4 `lesson` points and an icon in
+  `GAME_ICONS` (`lib/icons.ts`).
+- **New text to read aloud:** run the voice step below again.
 - **A chatbot topic:** add an entry to `TOPICS` in `data/chatbot/knowledge.ts`,
   with keywords in English, Roman Urdu, Urdu and Sindhi.
 - **Any interface text:** add the same key to all three `messages/*.json` files, then
   run `npm run check:i18n`.
+
+### Voice ("Listen" buttons)
+Phones and laptops often have no Urdu or Sindhi voice, so the app carries its own
+recorded clips in `public/audio` and plays those first; anything without a clip uses
+the device's voice if it has one. To make clips for new or changed text (Python 3.10+):
+
+```bash
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+pip install "transformers<5" soundfile num2words
+npx tsx scripts/tts/collect.ts       # lists every text to read aloud
+python scripts/tts/generate.py en ur # makes the missing clips + data/audio-manifest.json
+```
+
+English and Urdu use Meta's free MMS voices (CC-BY-NC 4.0: fine for this free school
+app, not for selling). **Sindhi** needs AI4Bharat's Indic Parler-TTS: create a free
+Hugging Face account, accept the terms at
+https://huggingface.co/ai4bharat/indic-parler-tts, run `hf auth login`, then
+`pip install git+https://github.com/huggingface/parler-tts.git` and
+`python scripts/tts/generate.py sd`.
 
 ### Connecting a real AI chatbot later
 The chat page only talks to the `ChatEngine` interface in `lib/chat/types.ts`.
