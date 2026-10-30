@@ -18,7 +18,7 @@ can be installed on phones as an app.
 | **Learn** | 13 lessons (Alphabet, Numbers, Colours, Animals, Family, Greetings, Fruits, Days, My Body, Vegetables, Transport, At School, Sky and Weather) with 3D flip cards, Roman pronunciation, "Listen" buttons and a mini quiz |
 | **Chatbot** | "Saathi", an offline helper that translates words, solves sums, shares fun facts and answers questions about Pakistan, Sindh, Bhittai and Iqbal (understands English, Urdu and Roman Urdu) |
 | **My Progress** | Quiz history, best scores, lessons completed, 15 badges, a chart, reset button |
-| **Leaderboard** | Top scores saved on this device |
+| **Leaderboard** | Top scores for everyone online (when set up, see "Online leaderboard" below) and on this device |
 | **About / Contact** | About the app and school; a contact form that opens the visitor's e-mail app |
 
 ### Made for primary school (Class 1–5)
@@ -240,6 +240,22 @@ scripts/                                icon generator, translation checker, exp
   with keywords in English, Roman Urdu, Urdu and Sindhi.
 - **Any interface text:** add the same key to all three `messages/*.json` files, then
   run `npm run check:i18n`.
+
+### Online leaderboard (Supabase, free)
+Scores stay on each device until this is set up; then students can choose to share
+their first name and score with everyone. Scores saved while offline are sent later.
+
+1. Create a free account and a project at https://supabase.com.
+2. In the project: **SQL Editor** → paste `supabase/schema.sql` → **Run**. It creates
+   the `scores` table; anyone can read and add scores, nobody can edit or delete them
+   from the app.
+3. **Project Settings → API**: copy the **Project URL** and the **anon / publishable**
+   key into `online` in `data/site.ts` (never the `service_role` / secret key).
+4. `npm run deploy` (and `cd desktop && npm run release` for the Windows app).
+
+To remove a rude name: Supabase → **Table Editor** → `scores` → delete the row.
+On the free plan a project is paused after a week with no visits; open the
+dashboard to wake it.
 
 ### Voice ("Listen" buttons)
 Phones and laptops often have no Urdu or Sindhi voice, so the app carries its own

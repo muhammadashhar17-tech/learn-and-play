@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Brain, Crown, Trash2, Trophy } from "lucide-react";
+import { Brain, Crown, Globe2, RotateCcw, Smartphone, Trash2, Trophy, WifiOff } from "lucide-react";
 import { useFormatter, useTranslations } from "next-intl";
 import { CATEGORIES, type CategoryId } from "@/data/quiz";
 import { clearLeaderboard, leaderboardStore, settingsStore, type LeaderboardEntry } from "@/lib/progress";
@@ -11,6 +11,7 @@ import { Button, ButtonLink } from "@/components/ui/Button";
 import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { EmptyState, Skeleton } from "@/components/ui/States";
 import { CATEGORY_ICONS } from "@/lib/icons";
+import { fetchOnline, onlineEnabled } from "@/lib/online";
 
 const MEDAL_TONES = [
   "from-yellow-300 via-amber-400 to-amber-600 text-amber-950",
@@ -46,6 +47,21 @@ export function LeaderboardView() {
   const { playerName } = useStore(settingsStore);
   const [filter, setFilter] = useState<CategoryId | "all">("all");
   const [confirm, setConfirm] = useState(false);
+  const [mode, setMode] = useState<"online" | "device">(onlineEnabled ? "online" : "device");
+  const [online, setOnline] = useState<{ key: string; list?: LeaderboardEntry[]; failed?: boolean }>({ key: "" });
+  const [retry, setRetry] = useState(0);
+  const onlineKey = `${filter}-${retry}`;
+
+  useEffect(() => {
+    if (mode !== "online") return;
+    let live = true;
+    fetchOnline(filter)
+      .then((list) => live && setOnline({ key: onlineKey, list }))
+      .catch(() => live && setOnline({ key: onlineKey, failed: true }));
+    return () => {
+      live = false;
+    };
+  }, [mode, filter, onlineKey]);
 
   if (!hydrated) {
     return (
@@ -57,11 +73,36 @@ export function LeaderboardView() {
     );
   }
 
-  const list = entries.filter((e) => filter === "all" || e.category === filter);
-  const isMe = (e: LeaderboardEntry) => !!playerName && e.name === playerName;
+  const myIds = new Set(entries.map((e) => e.id));
+  const isMe = (e: LeaderboardEntry) => myIds.has(e.id) || (mode === "device" && !!playerName && e.name === playerName);
+  const loading = mode === "online" && online.key !== onlineKey;
+  const list = mode === "online" ? (loading ? [] : (online.list ?? [])) : entries.filter((e) => filter === "all" || e.category === filter);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
+      {onlineEnabled && (
+        <div role="radiogroup" aria-label={t("modeLabel")} className="mb-5 grid grid-cols-2 gap-1 rounded-2xl bg-surface-2 p-1">
+          {(["online", "device"] as const).map((m) => {
+            const Icon = m === "online" ? Globe2 : Smartphone;
+            return (
+              <button
+                key={m}
+                type="button"
+                role="radio"
+                aria-checked={mode === m}
+                onClick={() => setMode(m)}
+                className={`flex min-h-11 items-center justify-center gap-2 rounded-xl px-3 font-bold transition ${
+                  mode === m ? "bg-surface text-ink shadow-soft" : "text-muted hover:text-ink"
+                }`}
+              >
+                <Icon className="size-4" aria-hidden />
+                {m === "online" ? t("modeOnline") : t("modeDevice")}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       {/* Filters */}
       <div role="radiogroup" aria-label={t("filterLabel")} className="flex flex-wrap gap-2">
         {(["all", ...CATEGORIES.map((c) => c.id)] as const).map((id) => {
@@ -87,7 +128,27 @@ export function LeaderboardView() {
         })}
       </div>
 
-      {list.length === 0 ? (
+      {loading ? (
+        <div className="mt-8 space-y-4" aria-busy="true">
+          <Skeleton className="h-48" />
+          <Skeleton className="h-64" />
+        </div>
+      ) : mode === "online" && online.failed ? (
+        <div className="mt-8">
+          <EmptyState
+            icon={WifiOff}
+            tile="from-slate-400 to-slate-600"
+            title={t("offlineTitle")}
+            text={t("offlineText")}
+            action={
+              <Button onClick={() => setRetry((r) => r + 1)}>
+                <RotateCcw className="size-5" aria-hidden />
+                {common("tryAgain")}
+              </Button>
+            }
+          />
+        </div>
+      ) : list.length === 0 ? (
         <div className="mt-8">
           <EmptyState
             icon={Trophy}
@@ -190,7 +251,11 @@ export function LeaderboardView() {
         </>
       )}
 
-      {entries.length > 0 && (
+      {mode === "online" && !loading && !online.failed && list.length > 0 && (
+        <p className="mt-4 text-center text-sm text-muted">{t("onlineNote")}</p>
+      )}
+
+      {mode === "device" && entries.length > 0 && (
         <div className="mt-8 flex justify-center">
           <Button variant="ghost" onClick={() => setConfirm(true)} className="text-rose-600 hover:bg-rose-50 dark:text-rose-400 dark:hover:bg-rose-950/40">
             <Trash2 className="size-5" aria-hidden />

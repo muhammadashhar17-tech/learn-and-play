@@ -273,7 +273,10 @@
       "save": "Save score",
       "saved": "Saved! 🎉",
       "openLeaderboard": "Open leaderboard",
-      "nameError": "Please write a name with 2 to 20 letters."
+      "nameError": "Please write a name with 2 to 20 letters.",
+      "shareOnline": "Also show my first name and score on the online leaderboard for all students.",
+      "savedOnline": "Saved — you are on the online leaderboard! 🎉",
+      "savedPending": "Saved on this device. It will go online when there is internet."
     }
   },
   "Learn": {
@@ -524,7 +527,7 @@
   },
   "Leaderboard": {
     "title": "Leaderboard",
-    "subtitle": "The top quiz scores on this device. Play a quiz and add your name!",
+    "subtitle": "The top quiz scores — online for everyone, and on this device. Play a quiz and add your name!",
     "all": "All subjects",
     "filterLabel": "Show scores for",
     "rank": "Rank",
@@ -540,7 +543,13 @@
     "play": "Play a quiz",
     "clear": "Clear leaderboard",
     "clearConfirm": "Remove every name and score from this device's leaderboard?",
-    "place": "Place {rank}"
+    "place": "Place {rank}",
+    "modeLabel": "Which scores to show",
+    "modeOnline": "Everyone (online)",
+    "modeDevice": "This device",
+    "offlineTitle": "Can't reach the online leaderboard",
+    "offlineText": "Check the internet connection and try again. Scores on this device are still in the other tab.",
+    "onlineNote": "Only first names and scores are shared online."
   },
   "About": {
     "title": "About Learn & Play",

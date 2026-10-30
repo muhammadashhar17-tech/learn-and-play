@@ -8,6 +8,15 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://learn-and-play.vercel.app",
   /** Where the Contact form sends e-mails (opens the visitor's mail app). */
   contactEmail: "sanaqureshi1947@gmail.com",
+  /**
+   * Online leaderboard (Supabase). Leave both empty to keep scores on each device only.
+   * `key` is the project's public "anon" / "publishable" key — never the secret
+   * "service_role" key. Set up the table with supabase/schema.sql.
+   */
+  online: {
+    url: "",
+    key: "",
+  },
   /** Always the newest Windows app (see desktop/ and "npm run release" there). */
   windowsDownload:
     "https://github.com/muhammadashhar17-tech/learn-and-play/releases/latest/download/Learn-and-Play-Setup.exe",

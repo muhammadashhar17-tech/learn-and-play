@@ -6,7 +6,8 @@ import { BarChart3, Check, LayoutGrid, RotateCcw, Star, Trophy, X } from "lucide
 import { useLocale, useTranslations } from "next-intl";
 import { pick } from "@/data/types";
 import { optionText, type RoundQuestion } from "@/lib/quiz";
-import { addLeaderboardEntry, settingsStore, type QuizRecord } from "@/lib/progress";
+import { addLeaderboardEntry, settingsStore, type LeaderboardEntry, type QuizRecord } from "@/lib/progress";
+import { onlineEnabled, submitOnline } from "@/lib/online";
 import { celebrate } from "@/lib/confetti";
 import { Button, ButtonLink } from "@/components/ui/Button";
 import { Aurora } from "@/components/ui/Aurora";
@@ -147,16 +148,19 @@ function SaveScore({ record }: { record: QuizRecord }) {
   const t = useTranslations("Quiz.results");
   const [name, setName] = useState(() => settingsStore.get().playerName);
   const [error, setError] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [share, setShare] = useState(onlineEnabled);
+  const [saved, setSaved] = useState<null | "local" | "online" | "pending">(null);
+  const [busy, setBusy] = useState(false);
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
+    if (busy) return;
     const clean = name.trim().replace(/\s+/g, " ");
     if (clean.length < 2 || clean.length > 20) {
       setError(true);
       return;
     }
-    addLeaderboardEntry({
+    const entry: LeaderboardEntry = {
       id: record.id,
       name: clean,
       points: record.points,
@@ -165,15 +169,20 @@ function SaveScore({ record }: { record: QuizRecord }) {
       category: record.category,
       difficulty: record.difficulty,
       date: record.date,
-    });
+    };
+    addLeaderboardEntry(entry);
     settingsStore.set((s) => ({ ...s, playerName: clean }));
-    setSaved(true);
+    if (!share) return setSaved("local");
+    setBusy(true);
+    setSaved((await submitOnline(entry)) ? "online" : "pending");
+    setBusy(false);
   }
 
   if (saved) {
+    const message = saved === "online" ? t("savedOnline") : saved === "pending" ? t("savedPending") : t("saved");
     return (
       <div className="mt-6 flex flex-col items-center gap-3 rounded-[1.75rem] border-2 border-white bg-surface dark:border-white/5 p-6 text-center shadow-soft sm:flex-row sm:justify-between sm:text-start">
-        <p className="text-lg font-bold text-ink">{t("saved")}</p>
+        <p role="status" className="text-lg font-bold text-ink">{message}</p>
         <ButtonLink href="/leaderboard" variant="secondary">
           <Trophy className="size-5 text-amber-500" aria-hidden />
           {t("openLeaderboard")}
@@ -208,8 +217,19 @@ function SaveScore({ record }: { record: QuizRecord }) {
             error ? "border-rose-400" : "border-line"
           }`}
         />
-        <Button type="submit">{t("save")}</Button>
+        <Button type="submit" disabled={busy}>{t("save")}</Button>
       </div>
+      {onlineEnabled && (
+        <label className="mt-3 flex cursor-pointer items-start gap-2.5 text-sm text-muted">
+          <input
+            type="checkbox"
+            checked={share}
+            onChange={(e) => setShare(e.target.checked)}
+            className="mt-0.5 size-5 shrink-0 accent-brand-600"
+          />
+          <span>{t("shareOnline")}</span>
+        </label>
+      )}
       {error && (
         <p id="player-name-error" role="alert" className="mt-2 text-sm font-semibold text-rose-600 dark:text-rose-400">
           {t("nameError")}
