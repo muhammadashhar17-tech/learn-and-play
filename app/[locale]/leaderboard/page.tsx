@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Trophy } from "lucide-react";
+import { site } from "@/data/site";
 import { initLocale } from "@/lib/locale";
 import { pageMetadata } from "@/lib/seo";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -19,7 +20,7 @@ function LeaderboardContent() {
   const t = useTranslations("Leaderboard");
   return (
     <>
-      <PageHeader width="max-w-4xl" icon={Trophy} tile="from-amber-300 to-amber-600" title={t("title")} subtitle={t("subtitle")} />
+      <PageHeader width="max-w-4xl" icon={Trophy} tile="from-amber-300 to-amber-600" title={t("title")} subtitle={site.online.url ? t("subtitleOnline") : t("subtitle")} />
       <LeaderboardView />
     </>
   );

@@ -527,7 +527,7 @@
   },
   "Leaderboard": {
     "title": "Leaderboard",
-    "subtitle": "The top quiz scores — online for everyone, and on this device. Play a quiz and add your name!",
+    "subtitle": "The top quiz scores on this device. Play a quiz and add your name!",
     "all": "All subjects",
     "filterLabel": "Show scores for",
     "rank": "Rank",
@@ -549,7 +549,8 @@
     "modeDevice": "This device",
     "offlineTitle": "Can't reach the online leaderboard",
     "offlineText": "Check the internet connection and try again. Scores on this device are still in the other tab.",
-    "onlineNote": "Only first names and scores are shared online."
+    "onlineNote": "Only first names and scores are shared online.",
+    "subtitleOnline": "The top quiz scores — online for everyone, and on this device. Play a quiz and add your name!"
   },
   "About": {
     "title": "About Learn & Play",
