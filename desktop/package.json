@@ -1,7 +1,7 @@
 {
   "name": "learn-and-play-desktop",
   "productName": "Learn & Play",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Learn & Play as a Windows app that works without internet.",
   "author": "Muhammad Ashhar",
   "private": true,
