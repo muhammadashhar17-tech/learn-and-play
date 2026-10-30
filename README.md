@@ -273,8 +273,9 @@ English and Urdu use Meta's free MMS voices (CC-BY-NC 4.0: fine for this free sc
 app, not for selling). **Sindhi** needs AI4Bharat's Indic Parler-TTS: create a free
 Hugging Face account, accept the terms at
 https://huggingface.co/ai4bharat/indic-parler-tts, run `hf auth login`, then
-`pip install git+https://github.com/huggingface/parler-tts.git` and
-`python scripts/tts/generate.py sd`.
+`pip install parler-tts==0.2.3`, delete `public/audio/sd` and run
+`python scripts/tts/generate.py sd`. Until then the Sindhi clips are an
+approximation read by the Urdu voice (see TRANSLATIONS_TO_REVIEW.md).
 
 ### Connecting a real AI chatbot later
 The chat page only talks to the `ChatEngine` interface in `lib/chat/types.ts`.

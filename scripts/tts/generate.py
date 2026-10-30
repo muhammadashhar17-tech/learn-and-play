@@ -143,12 +143,30 @@ class Parler:
         return audio.cpu().numpy().squeeze()
 
 
+# Sindhi letters the Urdu voice does not know, spelled with the nearest Urdu
+# sound. Used only until the real Sindhi voice (Parler) is available.
+SINDHI_TO_URDU = str.maketrans({
+    "ک": "کھ",  # in Sindhi ک is "kh"; plain "k" is ڪ
+    "ڪ": "ک", "ٻ": "ب", "ڀ": "بھ", "ٽ": "ٹ", "ٿ": "تھ", "ٺ": "ٹھ", "ڄ": "ج", "ڃ": "ن",
+    "ڇ": "چھ", "ڊ": "ڈ", "ڌ": "دھ", "ڏ": "د", "ڍ": "ڈھ", "ڙ": "ڑ", "ڦ": "پھ", "ڳ": "گ",
+    "ڱ": "نگ", "ڻ": "ن", "ي": "ی", "ه": "ہ", "۾": "میں", "۽": "ایں",
+})
+
+APPROX_SINDHI = False  # set by main() when the real Sindhi voice cannot be loaded
+
+
 def voice_for(lang: str):
+    global APPROX_SINDHI
     if lang == "en":
         return Mms("facebook/mms-tts-eng")
     if lang == "ur":
         return Mms("facebook/mms-tts-urd-script_arabic")
-    return Parler()
+    try:
+        return Parler()
+    except Exception as e:  # no Hugging Face login yet: read Sindhi with the Urdu voice
+        print(f"sd: real Sindhi voice not available ({e.__class__.__name__}); using the Urdu voice as an approximation")
+        APPROX_SINDHI = True
+        return Mms("facebook/mms-tts-urd-script_arabic")
 
 
 def prepare(lang: str, text: str):
@@ -161,10 +179,10 @@ def prepare(lang: str, text: str):
         return None
     if lang == "ur":
         return urdu_words(text)
-    # Sindhi: numbers are left to the device voice for now.
+    # Sindhi: numbers are left to the device voice (Urdu number words would be wrong).
     if DIGITS.search(text):
         return None
-    return text
+    return text.translate(SINDHI_TO_URDU) if APPROX_SINDHI else text
 
 
 def trim(wav, rate):

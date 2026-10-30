@@ -150,3 +150,10 @@ need fixes.
 The "Listen" clips in `public/audio` are made by a computer voice, not a person.
 Please listen to a few Urdu clips (Learn → any lesson → flip a card) and say if a
 word sounds wrong; it can be re-made after fixing the spelling.
+
+**Sindhi clips are an approximation for now.** There is no free Sindhi voice that
+works without a Hugging Face login, so the Sindhi clips are read by the Urdu voice
+with Sindhi-only letters swapped for the nearest Urdu sound (ٻ→ب, ڏ→د, ڪ→ک, ک→کھ…).
+The special Sindhi sounds (ٻ ڄ ڏ ڳ) therefore do not sound right yet. To replace
+them with a real Sindhi voice, follow "Voice" in README.md and delete
+`public/audio/sd` before running `python scripts/tts/generate.py sd`.
