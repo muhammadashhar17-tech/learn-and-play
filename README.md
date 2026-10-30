@@ -167,6 +167,28 @@ npm run dist       # builds the site, then the .exe files into desktop/dist
 The file is not code-signed, so Windows may show "Windows protected your PC":
 click **More info → Run anyway**.
 
+## 3c. Android app (APK file)
+
+The `mobile/` folder wraps the live website in an Android app (Capacitor). The APK
+opens https://muhammadashhar17-tech.github.io/learn-and-play/, so it always shows
+the newest version and works offline after the first visit — a new APK is only
+needed if the Android wrapper itself changes (name, icon).
+
+```bash
+cd mobile
+npm install        # first time only
+npm run apk        # -> mobile/dist/Learn-and-Play.apk
+```
+
+It needs JDK 21 and the Android SDK (platform 35, build-tools 35), looked for in
+`%LOCALAPPDATA%\lp-android\jdk` and `...\sdk` unless `JAVA_HOME` / `ANDROID_HOME` are set.
+The first build makes a signing key in `%USERPROFILE%\learn-and-play-keys\`.
+**Back that folder up**: every later APK must be signed with the same key, or phones
+will not install it over the old one.
+
+Installing: send the APK (e.g. on WhatsApp), open it on the phone and allow
+"Install unknown apps" for WhatsApp/Files when Android asks.
+
 ### Publishing an update (phone + laptop)
 
 After changing the site:
