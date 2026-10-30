@@ -1,0 +1,32 @@
+1:"$Sreact.fragment"
+2:"/learn-and-play/_next/static/chunks/42onvq6nokjl2.js"
+3:I[39756,["$2"],"default"]
+4:I[37457,["$2"],"default"]
+5:"/learn-and-play/_next/static/chunks/2x7bo0n-hb6r0.js"
+6:"/learn-and-play/_next/static/chunks/32ct9tnz--5eq.js"
+7:"/learn-and-play/_next/static/chunks/3w-tvo0ukmjig.js"
+8:"/learn-and-play/_next/static/chunks/2tqo7gxr610u1.js"
+9:I[61526,["$2","$5","$6","$7","$8"],"GlobalNotFound"]
+10:I[97367,["$2"],"OutletBoundary"]
+11:"$Sreact.suspense"
+14:"ViewportBoundary"
+15:I[97367,["$2"],"$14"]
+16:"MetadataBoundary"
+17:I[97367,["$2"],"$16"]
+:HL["/learn-and-play/_next/static/chunks/0cpulov-1e6wr.css","style"]
+:HL["/learn-and-play/_next/static/chunks/3wekqfyzmqaq4.css","style"]
+b:X
+e:X
+e:C
+f:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","html",null,{"lang":"en","className":"MNIRhG_variable B7BvlW_variable Lq9Nma_variable bixv0G_variable","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('lp-theme')==='dark'||(!localStorage.getItem('lp-theme')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}"}}]}],["$","body",null,{"className":"min-h-dvh","children":["$","$L9",null,{}]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/learn-and-play/_next/static/chunks/0cpulov-1e6wr.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/learn-and-play/_next/static/chunks/3wekqfyzmqaq4.css","precedence":"next"}],["$","script","script-0",{"src":"/learn-and-play/_next/static/chunks/2x7bo0n-hb6r0.js","async":true}],["$","script","script-1",{"src":"/learn-and-play/_next/static/chunks/32ct9tnz--5eq.js","async":true}],["$","script","script-2",{"src":"/learn-and-play/_next/static/chunks/3w-tvo0ukmjig.js","async":true}],["$","script","script-3",{"src":"/learn-and-play/_next/static/chunks/2tqo7gxr610u1.js","async":true}]],["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]]}],"p":"$@13","v":null,"s":"$b"}}]]
+c:[["children",{"s":"/_not-found","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]]}],"p":"$@d","v":"$e","s":"$b"},"c":"$Qf"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","script","script-0",{"src":"/learn-and-play/_next/static/chunks/42onvq6nokjl2.js","async":true}]],["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}],"notFound":[["$","html",null,{"lang":"en","className":"MNIRhG_variable B7BvlW_variable Lq9Nma_variable bixv0G_variable","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{if(localStorage.getItem('lp-theme')==='dark'||(!localStorage.getItem('lp-theme')&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}"}}]}],["$","body",null,{"className":"min-h-dvh","children":["$","$L9",null,{}]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/learn-and-play/_next/static/chunks/0cpulov-1e6wr.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/learn-and-play/_next/static/chunks/3wekqfyzmqaq4.css","precedence":"next"}]]]}]]}],"p":"$@a","v":null,"s":"$b"},"c":"$Qc"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L17",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$11",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"404 | Learn & Play"}],["$","meta","1",{"name":"robots","content":"noindex"}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@18","v":null,"s":"$b"}},"a":"$@19","u":"$@1a","b":"BDTZ0kSzOtSsTYUqkR4cF"}
+12:null
+b:300
+1a:true
+b:C
+19:0
+d:"$undefined"
+a:"$undefined"
+18:"$undefined"
+13:"$undefined"

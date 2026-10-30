@@ -1,0 +1,11 @@
+:HL["/learn-and-play/_next/static/chunks/0cpulov-1e6wr.css","style"]
+:HL["/learn-and-play/_next/static/chunks/3wekqfyzmqaq4.css","style"]
+:HL["/learn-and-play/_next/static/media/29e2a75af8e45044-s.p.2kjei9psvcorz.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/learn-and-play/_next/static/media/47faf0e9117ce2e3-s.p.3z_x6eowsw16y.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/learn-and-play/_next/static/media/648e19a466ec92f1-s.p.2demiz2t05dx4.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/learn-and-play/_next/static/media/660acf689794c992-s.p.2_mbdogr7ni8i.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+4:[["children",{"s":"__PAGE__","h":160}]]
+3:[["children",{"s":{"n":"game","t":"d","k":"spell-it","s":[]},"h":65632,"c":"$Q4"}]]
+2:[["children",{"s":"games","h":131136,"c":"$Q3"}]]
+1:[["children",{"s":{"n":"locale","t":"d","k":"sd","s":[]},"h":196640,"c":"$Q2"}]]
+0:{"b":"BDTZ0kSzOtSsTYUqkR4cF","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}

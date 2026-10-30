@@ -1,0 +1,34 @@
+3:"$Sreact.fragment"
+4:"/learn-and-play/_next/static/chunks/42onvq6nokjl2.js"
+5:I[39756,["$4"],"default"]
+6:I[37457,["$4"],"default"]
+b:"/learn-and-play/_next/static/chunks/44dkq6ka00ihh.js"
+c:"/learn-and-play/_next/static/chunks/37oo7q2spk6kv.js"
+d:"/learn-and-play/_next/static/chunks/32ct9tnz--5eq.js"
+e:"/learn-and-play/_next/static/chunks/2tqo7gxr610u1.js"
+f:"/learn-and-play/_next/static/chunks/264pkj3er56px.js"
+10:"/learn-and-play/_next/static/chunks/1gqvph34vt96j.js"
+11:I[5014,["$4","$b","$c","$d","$e","$f","$10"],"default"]
+12:I[19690,["$4","$b","$c","$d","$e","$f","$10"],"LeaderboardView"]
+13:I[97367,["$4"],"OutletBoundary"]
+14:"$Sreact.suspense"
+17:"ViewportBoundary"
+18:I[97367,["$4"],"$17"]
+19:"MetadataBoundary"
+1a:I[97367,["$4"],"$19"]
+1b:I[27201,["$4"],"IconMark"]
+8:X
+8:C
+9:X
+a:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$3","c",{"children":[[["$","header",null,{"className":"relative isolate overflow-hidden border-b border-line bg-gradient-to-b from-brand-50 to-bg dark:from-brand-950/50","children":[["$","div",null,{"className":"aurora -z-10","aria-hidden":true,"children":[["$","span",null,{"className":"bg-brand-300/45 dark:bg-brand-600/30 size-80 -top-24 end-[-6%]"}],["$","span",null,{"className":"bg-sky-300/40 dark:bg-sky-500/20 size-72 -bottom-24 start-[-8%]"}],["$","span",null,{"className":"bg-violet-300/35 dark:bg-violet-500/20 size-64 top-1/3 start-1/3"}]]}],["$","div",null,{"className":"bg-dots absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent)]","aria-hidden":true}],["$","div",null,{"className":"relative mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-14","children":[["$","span",null,{"className":"clay-tile grid shrink-0 place-items-center bg-gradient-to-br text-white from-amber-300 to-amber-600 size-14 rounded-2xl animate-float mb-5","aria-hidden":true,"children":["$","$L11",null,{"icon":{"name":"trophy","size":24,"node":[["path",{"d":"M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2","key":"pwuv1l"}],["path",{"d":"M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2","key":"1y54w1"}],["path",{"d":"M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3","key":"e30mpu"}],["path",{"d":"M4 22h16","key":"57wxv0"}],["path",{"d":"M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z","key":"1mhfuq"}],["path",{"d":"M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3","key":"i0yafy"}]]},"className":"size-7 drop-shadow-sm","strokeWidth":2.25}]}],["$","h1",null,{"className":"text-3xl font-black tracking-tight text-ink sm:text-5xl","children":"لیڈر بورڈ"}],["$","p",null,{"className":"mt-2 max-w-2xl text-lg text-muted","children":"سب سے زیادہ کوئز اسکور — سب کے لیے آن لائن، اور اس ڈیوائس پر۔ کوئز کھیلیں اور اپنا نام شامل کریں!"}],"$undefined"]}]]}],["$","$L12",null,{}]],[["$","script","script-0",{"src":"/learn-and-play/_next/static/chunks/264pkj3er56px.js","async":true}],["$","script","script-1",{"src":"/learn-and-play/_next/static/chunks/1gqvph34vt96j.js","async":true}]],["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]]}],"p":"$@16","v":null,"s":"$9"}}]]
+2:[["children",{"s":"leaderboard","h":64,"d":{"r":["$","$3","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"}]]
+1:[["children",{"s":{"n":"locale","t":"d","k":"ur","s":[]},"h":65568,"c":"$Q2"}]]
+0:{"t":{"t":{"s":"","h":131152,"c":"$Q1"},"h":{"r":["$","$3","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#1f5fbf","media":"(prefers-color-scheme: light)"}],["$","meta","3",{"name":"theme-color","content":"#08111f","media":"(prefers-color-scheme: dark)"}]]}],["$","$L1a",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"لیڈر بورڈ | سیکھو اور کھیلو"}],["$","meta","1",{"name":"description","content":"اس ڈیوائس پر سب سے زیادہ کوئز اسکور دیکھیں۔"}],["$","meta","2",{"name":"application-name","content":"سیکھو اور کھیلو"}],["$","link","3",{"rel":"manifest","href":"/learn-and-play/manifest.webmanifest"}],["$","link","4",{"rel":"canonical","href":"https://muhammadashhar17-tech.github.io/learn-and-play/ur/leaderboard/"}],["$","link","5",{"rel":"alternate","hrefLang":"en-US","href":"https://muhammadashhar17-tech.github.io/learn-and-play/en/leaderboard/"}],["$","link","6",{"rel":"alternate","hrefLang":"ur-PK","href":"https://muhammadashhar17-tech.github.io/learn-and-play/ur/leaderboard/"}],["$","link","7",{"rel":"alternate","hrefLang":"sd-PK","href":"https://muhammadashhar17-tech.github.io/learn-and-play/sd/leaderboard/"}],["$","link","8",{"rel":"alternate","hrefLang":"x-default","href":"https://muhammadashhar17-tech.github.io/learn-and-play/en/leaderboard/"}],["$","meta","9",{"name":"mobile-web-app-capable","content":"yes"}],["$","meta","10",{"name":"apple-mobile-web-app-title","content":"سیکھو اور کھیلو"}],["$","meta","11",{"name":"apple-mobile-web-app-status-bar-style","content":"default"}],["$","meta","12",{"property":"og:title","content":"لیڈر بورڈ | سیکھو اور کھیلو"}],["$","meta","13",{"property":"og:description","content":"اس ڈیوائس پر سب سے زیادہ کوئز اسکور دیکھیں۔"}],["$","meta","14",{"property":"og:url","content":"https://muhammadashhar17-tech.github.io/learn-and-play/ur/leaderboard/"}],["$","meta","15",{"property":"og:site_name","content":"سیکھو اور کھیلو"}],["$","meta","16",{"property":"og:locale","content":"ur_PK"}],["$","meta","17",{"property":"og:image","content":"https://muhammadashhar17-tech.github.io/learn-and-play/og.png"}],["$","meta","18",{"property":"og:image:width","content":"1200"}],["$","meta","19",{"property":"og:image:height","content":"630"}],["$","meta","20",{"property":"og:image:alt","content":"سیکھو اور کھیلو"}],["$","meta","21",{"property":"og:type","content":"website"}],["$","meta","22",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","23",{"name":"twitter:title","content":"لیڈر بورڈ | سیکھو اور کھیلو"}],["$","meta","24",{"name":"twitter:description","content":"اس ڈیوائس پر سب سے زیادہ کوئز اسکور دیکھیں۔"}],["$","meta","25",{"name":"twitter:image","content":"https://muhammadashhar17-tech.github.io/learn-and-play/og.png"}],["$","link","26",{"rel":"icon","href":"/learn-and-play/favicon.ico","sizes":"any"}],["$","link","27",{"rel":"icon","href":"/learn-and-play/icon.svg","type":"image/svg+xml"}],["$","link","28",{"rel":"apple-touch-icon","href":"/learn-and-play/apple-touch-icon.png"}],["$","$L1b","29",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@1c","v":null,"s":"$9"}},"a":"$@1d","u":"$@1e","b":"BDTZ0kSzOtSsTYUqkR4cF"}
+15:null
+1e:true
+9:300
+9:C
+1d:0
+7:"$undefined"
+1c:"$undefined"
+16:"$undefined"
