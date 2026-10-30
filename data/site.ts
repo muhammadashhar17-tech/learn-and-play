@@ -14,8 +14,8 @@ export const site = {
    * "service_role" key. Set up the table with supabase/schema.sql.
    */
   online: {
-    url: "",
-    key: "",
+    url: "https://ufmgmyyhyksmzombqdwq.supabase.co",
+    key: "sb_publishable_nvnbYyIfO1B325cWZP5A_g_R6C9G4Q9",
   },
   /** Always the newest Windows app (see desktop/ and "npm run release" there). */
   windowsDownload:
